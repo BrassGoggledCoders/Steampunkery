@@ -15,63 +15,15 @@ morph/
 
 Start.java
 
-assets/forge/lang/en_US.lang
+assets/forge/
 
-assets/forge/lang/es_ES.lang
+com/warlordjones/SHC/
 
-assets/forge/lang/fr_FR.lang
+com/warlordjones/goo/
 
-com/warlordjones/SHC/SHC.java
+com/warlordjones/hostilevariety/
 
-com/warlordjones/SHC/ThirstStats.java
-
-com/warlordjones/goo/BaseGoo.java
-
-com/warlordjones/goo/BlackGoo.java
-
-com/warlordjones/goo/BlueGoo.java
-
-com/warlordjones/goo/BrownGoo.java
-
-com/warlordjones/goo/CyanGoo.java
-
-com/warlordjones/goo/Goo.java
-
-com/warlordjones/goo/GreenGoo.java
-
-com/warlordjones/goo/GreyGoo.java
-
-com/warlordjones/goo/LightBlueGoo.java
-
-com/warlordjones/goo/LightGreyGoo.java
-
-com/warlordjones/goo/LimeGoo.java
-
-com/warlordjones/goo/MagentaGoo.java
-
-com/warlordjones/goo/OrangeGoo.java
-
-com/warlordjones/goo/PinkGoo.java
-
-com/warlordjones/goo/PurpleGoo.java
-
-com/warlordjones/goo/RainbowGoo.java
-
-com/warlordjones/goo/RedGoo.java
-
-com/warlordjones/goo/WhiteGoo.java
-
-com/warlordjones/goo/YellowGoo.java
-
-com/warlordjones/hostilevariety/HostileClientProxy.java
-
-com/warlordjones/hostilevariety/HostileCommonProxy.java
-
-com/warlordjones/hostilevariety/HostileVariety.java
-
-com/warlordjones/midas/Midas.java
-
-com/warlordjones/midas/MidasClickHandler.java
+com/warlordjones/midas/
 
 deobfuscation_data-1.6.4.lzma
 
