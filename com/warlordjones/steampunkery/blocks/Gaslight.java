@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 import com.warlordjones.steampunkery.SteamConstants;
 import com.warlordjones.steampunkery.Steampunkery;
-import com.warlordjones.steampunkery.tileentitities.TileEntityGaslight;
+import com.warlordjones.steampunkery.tileentities.TileEntityGaslight;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

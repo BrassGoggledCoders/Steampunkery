@@ -54,4 +54,8 @@ public class MetalBlocks extends Block {
 	    icons[i] = par1IconRegister.registerIcon("steampunkery:"
 		    + getUnlocalizedName().substring(5) + i);
     }
+    public boolean isBeaconBase()
+    {
+	return true;
+    }
 }

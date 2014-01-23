@@ -97,6 +97,7 @@ public class ConfigSetup {
     public static int copper_ore_veinsize;
     public static int tin_ore_veinsize;
     public static int zinc_ore_veinsize;
+    public static int conveyorID;
 
     static void SetupConfiguration(final File configFile) {
 	// Configuration Code
@@ -207,6 +208,8 @@ public class ConfigSetup {
 	engine_blockID = config.get("Blocks", "Engine Block ID", block_id).getInt();
 	block_id++;
 	hatchID = config.get("Blocks", "Hatch ID", block_id).getInt();
+	block_id++;
+	conveyorID = config.get("Blocks", "Conveyor Belt ID", block_id).getInt();
 	int gen_blocksID = 200;
 	ConfigSetup.hot_mudID = config.get("Gen blocks", "Hot Mud ID",
 		gen_blocksID).getInt();

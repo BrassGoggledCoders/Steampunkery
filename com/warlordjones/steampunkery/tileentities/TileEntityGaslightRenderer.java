@@ -1,4 +1,4 @@
-package com.warlordjones.steampunkery.tileentitities;
+package com.warlordjones.steampunkery.tileentities;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import com.warlordjones.steampunkery.SteamConstants;
-import com.warlordjones.steampunkery.tileentitities.models.ModelGaslight;
+import com.warlordjones.steampunkery.tileentities.models.ModelGaslight;
 
 public class TileEntityGaslightRenderer extends TileEntitySpecialRenderer {
     private static final ResourceLocation ibeamTextures = new ResourceLocation(

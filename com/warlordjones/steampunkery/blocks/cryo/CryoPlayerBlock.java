@@ -6,7 +6,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.warlordjones.steampunkery.Steampunkery;
-import com.warlordjones.steampunkery.tileentitities.TileEntityCryoPlayer;
+import com.warlordjones.steampunkery.tileentities.TileEntityCryoPlayer;
 
 public class CryoPlayerBlock extends BlockContainer {
 

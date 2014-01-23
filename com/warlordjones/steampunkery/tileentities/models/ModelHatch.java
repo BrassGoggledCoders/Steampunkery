@@ -1,4 +1,4 @@
-package com.warlordjones.steampunkery.tileentitities.models;
+package com.warlordjones.steampunkery.tileentities.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -19,7 +19,6 @@ public class ModelHatch extends ModelBase {
 		
 		hatch = new ModelRenderer(this, 0, 0);
 		hatch.addBox(-7.0F, -5.5F, -7.0F, 14, 5, 14, 0);
-		
 		center = new ModelRenderer(this, 0, 0);
 		center.addBox(-1.5F, -9.0F, -1.5F, 3, 8, 3, 0);
 		

@@ -11,4 +11,8 @@ public class SteamCommonProxy {
     public void registerTickHandlers() {
 	// TODO Auto-generated method stub
     }
+    public void registerSoundEffects()
+    {
+	
+    }
 }

@@ -1,4 +1,4 @@
-package com.warlordjones.steampunkery.tileentitities;
+package com.warlordjones.steampunkery.tileentities;
 
 import java.util.Iterator;
 import java.util.List;

@@ -38,6 +38,7 @@ public class SteamBlocks {
     public static Block plated_metals;
     public static Block tank_track, gun_barrel, engine_block;
     public static Block hatch;
+    public static Block conveyor;
 
     public static void RegisterBlocks() {
 	// brass_block = alloy_blocks;
@@ -106,6 +107,7 @@ public class SteamBlocks {
 	gun_barrel = new GunBarrel(ConfigSetup.gun_barrelID, Material.iron).setUnlocalizedName("gun_barrel");
 	engine_block = new EngineBlock(ConfigSetup.engine_blockID, Material.iron).setUnlocalizedName("engine_block");
 	hatch = new Hatch(ConfigSetup.hatchID, Material.iron).setUnlocalizedName("hatch");
+	conveyor = new Conveyor(ConfigSetup.conveyorID, Material.iron).setUnlocalizedName("conveyor_belt");
 	// cryo_player= new CryoPlayerBlock(ConfigSetup.cryo_playerID,
 	// Material.ice);
 	RegistryUtils.addMetaBlocks(metal_blocks,
@@ -149,5 +151,6 @@ public class SteamBlocks {
 	RegistryUtils.addBlock(tank_track, "Tank Track");
 	RegistryUtils.addBlock(engine_block, "Engine Block");
 	RegistryUtils.addBlock(hatch, "Hatch");
+	RegistryUtils.addBlock(conveyor, "Conveyor Belt");
     }
 }

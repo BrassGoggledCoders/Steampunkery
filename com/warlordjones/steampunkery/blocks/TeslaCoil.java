@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 import com.warlordjones.steampunkery.SteamConstants;
 import com.warlordjones.steampunkery.Steampunkery;
-import com.warlordjones.steampunkery.tileentitities.TileEntityTeslaCoil;
+import com.warlordjones.steampunkery.tileentities.TileEntityTeslaCoil;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

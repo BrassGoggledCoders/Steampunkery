@@ -22,7 +22,6 @@ import cpw.mods.fml.common.network.IConnectionHandler;
 import cpw.mods.fml.common.network.Player;
 
 public class SteamPlayerHandler implements IConnectionHandler {
-    private boolean givenCoal = false;
 
     @Override
     public void clientLoggedIn(final NetHandler clientHandler,
@@ -54,14 +53,6 @@ public class SteamPlayerHandler implements IConnectionHandler {
 	return null;
     }
 
-    public void giveCoal(final EntityPlayer player, final ItemStack item) {
-	if (!givenCoal) {
-	    player.inventory.addItemStackToInventory(new ItemStack(Item.coal,
-		    64));
-	    givenCoal = true;
-	}
-    }
-
     @Override
     public void playerLoggedIn(final Player player,
 	    final NetHandler netHandler, final INetworkManager manager) {
@@ -85,33 +76,10 @@ public class SteamPlayerHandler implements IConnectionHandler {
 				    + EnumChatFormatting.RESET
 				    + "] Mod Up to Date"));
 	    } catch (final MalformedURLException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	    } catch (final IOException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	    }
 	}
-	final Calendar calendar = Calendar.getInstance();
-	calendar.setTime(new Date());
-	if (calendar.get(2) + 1 == 12 && calendar.get(5) == 25) {
-	    {
-		if (!givenCoal) {
-		    giveCoal((EntityPlayer) player, new ItemStack(Item.coal));
-		    netHandler
-			    .getPlayer()
-			    .sendChatToPlayer(
-				    ChatMessageComponent
-					    .createFromText("["
-						    + EnumChatFormatting.RED
-						    + "Steampunkery"
-						    + EnumChatFormatting.RESET
-						    + "] Us Steampunk types probably like coal in our stockings!"));
-		} else
-		    return;
-	    }
-	    givenCoal = true;
-	} else
-	    return;
     }
 }

@@ -1,4 +1,4 @@
-package com.warlordjones.steampunkery.tileentitities;
+package com.warlordjones.steampunkery.tileentities;
 
 import net.minecraft.client.model.ModelSign;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

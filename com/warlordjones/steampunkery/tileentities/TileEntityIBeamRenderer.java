@@ -1,4 +1,4 @@
-package com.warlordjones.steampunkery.tileentitities;
+package com.warlordjones.steampunkery.tileentities;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import com.warlordjones.steampunkery.SteamConstants;
-import com.warlordjones.steampunkery.tileentitities.models.ModelIBeam;
+import com.warlordjones.steampunkery.tileentities.models.ModelIBeam;
 
 public class TileEntityIBeamRenderer extends TileEntitySpecialRenderer {
     private static final ResourceLocation ibeamTextures = new ResourceLocation(

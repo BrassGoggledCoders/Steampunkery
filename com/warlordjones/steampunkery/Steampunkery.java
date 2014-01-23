@@ -7,12 +7,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 
+import com.warlordjones.steampunkery.FX.SteamSoundHandler;
 import com.warlordjones.steampunkery.blocks.SteamBlocks;
 import com.warlordjones.steampunkery.entity.EntitySetup;
 import com.warlordjones.steampunkery.gen.GenerationHandler;
 import com.warlordjones.steampunkery.gui.SteamGUIHandler;
 import com.warlordjones.steampunkery.items.SteamItems;
-import com.warlordjones.steampunkery.tileentitities.TileEntityHandler;
+import com.warlordjones.steampunkery.tileentities.TileEntityHandler;
 import com.warlordjones.steampunkery.util.SteamLog;
 
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -20,12 +21,14 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLLoadEvent;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 //@formatter: off
 @Mod(modid = SteamConstants.modid, name = SteamConstants.name, version = SteamConstants.version, acceptedMinecraftVersions = "1.6.4, 1.6.2, 1.6.1")
@@ -110,7 +113,7 @@ public class Steampunkery {
     }
 
     @EventHandler
-    public void load(final FMLLoadEvent event) {
+    public void load(final FMLInitializationEvent event) {
 	RecipeHandler.RegisterRecipes();
 	if (ConfigSetup.debug_mode_B = true) {
 	    SteamLog.log(Level.INFO, "Recipes Setup");

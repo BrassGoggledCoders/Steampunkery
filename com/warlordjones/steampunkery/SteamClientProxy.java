@@ -2,7 +2,9 @@ package com.warlordjones.steampunkery;
 
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
+import com.warlordjones.steampunkery.FX.SteamSoundHandler;
 import com.warlordjones.steampunkery.entity.EntityBullet;
 import com.warlordjones.steampunkery.entity.EntityFleshGolem;
 import com.warlordjones.steampunkery.entity.EntityIBoat;
@@ -19,16 +21,18 @@ import com.warlordjones.steampunkery.entity.render.RenderMechanicalHorse;
 import com.warlordjones.steampunkery.entity.render.RenderSkySquid;
 import com.warlordjones.steampunkery.items.ItemRendererMusket;
 import com.warlordjones.steampunkery.items.SteamItems;
-import com.warlordjones.steampunkery.tileentitities.TileEntityCryoPlayer;
-import com.warlordjones.steampunkery.tileentitities.TileEntityCryoPlayerRenderer;
-import com.warlordjones.steampunkery.tileentitities.TileEntityGaslight;
-import com.warlordjones.steampunkery.tileentitities.TileEntityGaslightRenderer;
-import com.warlordjones.steampunkery.tileentitities.TileEntityHatch;
-import com.warlordjones.steampunkery.tileentitities.TileEntityHatchRenderer;
-import com.warlordjones.steampunkery.tileentitities.TileEntityIBeamRenderer;
-import com.warlordjones.steampunkery.tileentitities.TileEntityIbeam;
-import com.warlordjones.steampunkery.tileentitities.TileEntityTeslaCoil;
-import com.warlordjones.steampunkery.tileentitities.TileEntityTeslaCoilRenderer;
+import com.warlordjones.steampunkery.tileentities.TileEntityConveyor;
+import com.warlordjones.steampunkery.tileentities.TileEntityConveyorRenderer;
+import com.warlordjones.steampunkery.tileentities.TileEntityCryoPlayer;
+import com.warlordjones.steampunkery.tileentities.TileEntityCryoPlayerRenderer;
+import com.warlordjones.steampunkery.tileentities.TileEntityGaslight;
+import com.warlordjones.steampunkery.tileentities.TileEntityGaslightRenderer;
+import com.warlordjones.steampunkery.tileentities.TileEntityHatch;
+import com.warlordjones.steampunkery.tileentities.TileEntityHatchRenderer;
+import com.warlordjones.steampunkery.tileentities.TileEntityIBeamRenderer;
+import com.warlordjones.steampunkery.tileentities.TileEntityIbeam;
+import com.warlordjones.steampunkery.tileentities.TileEntityTeslaCoil;
+import com.warlordjones.steampunkery.tileentities.TileEntityTeslaCoilRenderer;
 import com.warlordjones.steampunkery.util.IGuiOverlayScheduledTickHandler;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -61,9 +65,11 @@ public class SteamClientProxy extends SteamCommonProxy {
 	ClientRegistry.bindTileEntitySpecialRenderer(
 		TileEntityCryoPlayer.class, new TileEntityCryoPlayerRenderer());
 	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHatch.class, new TileEntityHatchRenderer());
+	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityConveyor.class, new TileEntityConveyorRenderer());
 	MinecraftForgeClient.registerItemRenderer(SteamItems.musket.itemID,
 		(IItemRenderer) new ItemRendererMusket());
 	CapeHandler.handleCapes();
+	MinecraftForge.EVENT_BUS.register(new SteamSoundHandler());
     }
 
     @Override
@@ -71,5 +77,10 @@ public class SteamClientProxy extends SteamCommonProxy {
 	TickRegistry.registerScheduledTickHandler(
 		new IGuiOverlayScheduledTickHandler(), Side.CLIENT);
 	TickRegistry.registerTickHandler(new SteamTickHandler(), Side.CLIENT);
+    }
+    @Override
+    public void registerSoundEffects()
+    {
+	MinecraftForge.EVENT_BUS.register(new SteamSoundHandler());
     }
 }

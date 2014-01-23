@@ -1,4 +1,4 @@
-package com.warlordjones.steampunkery.tileentitities;
+package com.warlordjones.steampunkery.tileentities;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -6,24 +6,23 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.warlordjones.steampunkery.SteamConstants;
-import com.warlordjones.steampunkery.tileentitities.models.ModelTeslaCoil;
+import com.warlordjones.steampunkery.tileentities.models.ModelCryoPlayer;
 
-public class TileEntityTeslaCoilRenderer extends TileEntitySpecialRenderer {
+public class TileEntityCryoPlayerRenderer extends TileEntitySpecialRenderer {
     private static final ResourceLocation ibeamTextures = new ResourceLocation(
-	    SteamConstants.prefix + "/textures/blocks/tesla_coil.png");
-    private ModelTeslaCoil model; // yup, this refers to the last file. so
-				  // you'll
-				  // get an error for now. it says what model it
-				  // has
-				  // to take
+	    "/textures/blocks/ice.png");
+    private ModelCryoPlayer model; // yup, this refers to the last file. so
+				   // you'll
+				   // get an error for now. it says what model
+				   // it
+				   // has to take
 
-    public TileEntityTeslaCoilRenderer() {
-	model = new ModelTeslaCoil();
+    public TileEntityCryoPlayerRenderer() {
+	model = new ModelCryoPlayer();
     }
 
-    public void renderAModelAt(TileEntityTeslaCoil tile, double d, double d1,
-	    double d2, float f) {
+    public void renderAModelAt(TileEntityCryoPlayer tileentity, double d,
+	    double d1, double d2, float f) {
 	bindTexture(ibeamTextures);
 	GL11.glPushMatrix(); // start
 	GL11.glTranslatef((float) d + 0.5F, (float) d1 + 1.5F,
@@ -79,8 +78,8 @@ public class TileEntityTeslaCoilRenderer extends TileEntitySpecialRenderer {
 
     public void renderTileEntityAt(TileEntity tileentity, double d, double d1,
 	    double d2, float f) {
-	renderAModelAt((TileEntityTeslaCoil) tileentity, d, d1, d2, f); // where
-									// to
-									// render
+	renderAModelAt((TileEntityCryoPlayer) tileentity, d, d1, d2, f); // where
+									 // to
+									 // render
     }
 }
