@@ -137,7 +137,7 @@ public class Steampunkery {
 	MinecraftForge.EVENT_BUS.register(new SteamEventHandler());
 	SteamKeyBindRegistry.init();
 	FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("steam", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(SteamItems.steam_bucket), new ItemStack(Item.bucketEmpty));
-	BucketHandler.INSTANCE.buckets.put("steam", SteamItems.steam_bucket);
+	BucketHandler.INSTANCE.buckets.put(SteamBlocks.steam_block, SteamItems.steam_bucket);
 	MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
     }
 
