@@ -1,19 +1,20 @@
 package com.warlordjones.steampunkery.items;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-
 import com.warlordjones.steampunkery.Steampunkery;
 import com.warlordjones.steampunkery.entity.EntityBullet;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class Musket extends ItemBase {
     public Musket(final int par1) {
 	super(par1);
 	maxStackSize = 1;
 	setMaxDamage(384);
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.ItemTab);
 	setFull3D();
     }
 
@@ -69,8 +70,7 @@ public class Musket extends ItemBase {
 		return;
 	    if (f > 1.0F)
 		f = 1.0F;
-	    final EntityBullet entitybullet = new EntityBullet(par2World,
-		    f * 2.0F, f, f);
+	    new EntityBullet(par2World, f * 2.0F, f, f);
 	    // if (f == 1.0F)
 	    // entitybullet.setIsCritical(true);
 	    // else
@@ -78,7 +78,7 @@ public class Musket extends ItemBase {
 		    .consumeInventoryItem(SteamItems.bullet.itemID);
 	    if (!par2World.isRemote) {
 		par2World.playSoundAtEntity(par3EntityPlayer, "random.bow",
-			0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+			0.5F, 0.4F / (Item.itemRand.nextFloat() * 0.4F + 0.8F));
 		par2World.spawnEntityInWorld(new EntityBullet(par2World,
 			par3EntityPlayer));
 	    }

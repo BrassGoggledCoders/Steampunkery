@@ -1,23 +1,29 @@
 package com.warlordjones.steampunkery.items;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.warlordjones.steampunkery.Steampunkery;
-
 public class Toolbelt extends ItemBase {
-    public Toolbelt(int id) {
+    public Toolbelt(final int id) {
 	super(id);
 	// TODO Auto-generated constructor stub
     }
 
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World,
-	    EntityPlayer par3EntityPlayer)// , int par2, int par3, int par4)
+    @Override
+    public ItemStack onItemRightClick(final ItemStack par1ItemStack,
+	    final World par2World, final EntityPlayer par3EntityPlayer)// , int
+								       // par2,
+								       // int
+								       // par3,
+								       // int
+								       // par4)
     {
-	if (!par2World.isRemote) {
+	if (!par2World.isRemote)
 	    return par1ItemStack;
-	} else {
+	else {
 	    par3EntityPlayer.openGui(Steampunkery.instance, 100, par2World, 0,
 		    0, 0);
 	    // displayGUIToolbelt(par1ItemStack);

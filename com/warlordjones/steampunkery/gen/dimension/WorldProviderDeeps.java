@@ -1,11 +1,11 @@
 package com.warlordjones.steampunkery.gen.dimension;
 
+import com.warlordjones.steampunkery.ConfigSetup;
+import com.warlordjones.steampunkery.gen.GenerationHandler;
+
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
-
-import com.warlordjones.steampunkery.ConfigSetup;
-import com.warlordjones.steampunkery.gen.GenerationHandler;
 
 public class WorldProviderDeeps extends WorldProvider {
     @Override

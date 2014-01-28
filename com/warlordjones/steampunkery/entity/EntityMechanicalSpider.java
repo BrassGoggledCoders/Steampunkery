@@ -5,7 +5,7 @@ import net.minecraft.world.World;
 
 public class EntityMechanicalSpider extends EntitySpider {
 
-    public EntityMechanicalSpider(World par1World) {
+    public EntityMechanicalSpider(final World par1World) {
 	super(par1World);
 	// TODO Auto-generated constructor stub
     }

@@ -1,5 +1,7 @@
 package com.warlordjones.steampunkery.items;
 
+import com.warlordjones.steampunkery.SteamConstants;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -7,19 +9,18 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import com.warlordjones.steampunkery.SteamConstants;
-
 public class ItemRendererMusket implements IItemRenderer {
-    protected ModelMusket musket_model;
     private static final ResourceLocation musketTextures = new ResourceLocation(
 	    SteamConstants.prefix + "/textures/blocks/alloy_blocks2.png");
+    protected ModelMusket musket_model;
 
     public ItemRendererMusket() {
 	musket_model = new ModelMusket();
     }
 
     @Override
-    public boolean handleRenderType(ItemStack item, ItemRenderType type) {
+    public boolean handleRenderType(final ItemStack item,
+	    final ItemRenderType type) {
 	switch (type) {
 	case EQUIPPED: {
 	    return true;
@@ -36,17 +37,13 @@ public class ItemRendererMusket implements IItemRenderer {
     }
 
     @Override
-    public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item,
-	    ItemRendererHelper helper) {
-	return false;
-    }
-
-    @Override
-    public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+    public void renderItem(final ItemRenderType type, final ItemStack item,
+	    final Object... data) {
 	switch (type) {
 	case EQUIPPED: {
 	    GL11.glPushMatrix();
-	    Minecraft.getMinecraft().renderEngine.bindTexture(musketTextures);
+	    Minecraft.getMinecraft().renderEngine
+		    .bindTexture(ItemRendererMusket.musketTextures);
 	    GL11.glScalef(1.5F, 1.5F, 1.5F);
 	    GL11.glRotatef(-80F, 1F, 0F, 0F);
 	    GL11.glRotatef(-120F, 0F, 1F, 0F);
@@ -58,7 +55,8 @@ public class ItemRendererMusket implements IItemRenderer {
 	}
 	case EQUIPPED_FIRST_PERSON: {
 	    GL11.glPushMatrix();
-	    Minecraft.getMinecraft().renderEngine.bindTexture(musketTextures);
+	    Minecraft.getMinecraft().renderEngine
+		    .bindTexture(ItemRendererMusket.musketTextures);
 	    GL11.glScalef(1.5F, 1.5F, 1.5F);
 	    GL11.glRotatef(-80F, 1F, 0F, 0F);
 	    GL11.glRotatef(-120F, 0F, 1F, 0F);
@@ -73,6 +71,12 @@ public class ItemRendererMusket implements IItemRenderer {
 	}
 	}
 
+    }
+
+    @Override
+    public boolean shouldUseRenderHelper(final ItemRenderType type,
+	    final ItemStack item, final ItemRendererHelper helper) {
+	return false;
     }
 
 }

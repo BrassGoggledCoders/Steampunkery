@@ -2,19 +2,15 @@ package com.warlordjones.steampunkery.items;
 
 import java.util.List;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-public class Organs extends Item {
+public class Organs extends ItemBase {
     public static final String[] names = new String[] { "0", "1", "2", "3" };
     @SideOnly(Side.CLIENT)
     private Icon[] icons;
@@ -23,7 +19,6 @@ public class Organs extends Item {
     public Organs(final int id) {
 	super(id);
 	setHasSubtypes(true);
-	setCreativeTab(Steampunkery.steampunkeryTab);
 	setUnlocalizedName("organs");
     }
 
@@ -44,7 +39,7 @@ public class Organs extends Item {
     public String getUnlocalizedName(final ItemStack par1ItemStack) {
 	final int i = MathHelper
 		.clamp_int(par1ItemStack.getItemDamage(), 0, 15);
-	return super.getUnlocalizedName() + "." + names[i];
+	return super.getUnlocalizedName() + "." + Organs.names[i];
     }
 
     @Override

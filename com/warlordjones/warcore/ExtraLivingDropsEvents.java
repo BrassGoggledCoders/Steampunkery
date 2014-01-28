@@ -16,26 +16,23 @@ public class ExtraLivingDropsEvents {
     public World worldObj;
 
     @ForgeSubscribe
-    public void onEntityDrop(LivingDropsEvent event) {
+    public void onEntityDrop(final LivingDropsEvent event) {
 	if (event.entityLiving instanceof EntityZombie) {
-	    EntityZombie entityzombie = new EntityZombie(worldObj);
+	    final EntityZombie entityzombie = new EntityZombie(worldObj);
 	    if (event.entityLiving instanceof EntityZombie
-		    && entityzombie.isVillager()) {
+		    && entityzombie.isVillager())
 		event.entityLiving.dropItem(Item.emerald.itemID, r.nextInt(2));
-	    }
 	    event.entityLiving.dropItem(Item.bone.itemID, r.nextInt(2));
 	    // event.entityLiving.dropItem(Item..itemID, r.nextInt(3));
 
-	    if (rand < 2.00D) {
-		rand = Math.random();
+	    if (ExtraLivingDropsEvents.rand < 2.00D) {
+		ExtraLivingDropsEvents.rand = Math.random();
 		event.entityLiving.dropItem(Item.feather.itemID, r.nextInt(2));
 	    }
-	    if (event.entityLiving instanceof EntityEnderman) {
-		if (rand < 2.00D) {
+	    if (event.entityLiving instanceof EntityEnderman)
+		if (ExtraLivingDropsEvents.rand < 2.00D)
 		    event.entityLiving.dropItem(Item.eyeOfEnder.itemID,
 			    r.nextInt(2));
-		}
-	    }
 
 	}
     }

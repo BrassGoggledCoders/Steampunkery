@@ -2,7 +2,7 @@ package com.warlordjones.steampunkery.items;
 
 public class Respirator extends ItemBase {
 
-    public Respirator(int id) {
+    public Respirator(final int id) {
 	super(id);
 	setUnlocalizedName("respirator");
     }

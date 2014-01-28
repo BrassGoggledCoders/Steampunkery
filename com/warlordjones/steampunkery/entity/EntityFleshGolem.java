@@ -1,17 +1,12 @@
 package com.warlordjones.steampunkery.entity;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAIMoveTowardsTarget;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
@@ -20,13 +15,11 @@ import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityFleshGolem extends EntityGolem {
+    private static final IEntitySelector attackEntitySelector = new EntityFleshGolemAttackFilter();
     public boolean mindcontrol = false;
     private int attackTimer;
-    private static final IEntitySelector attackEntitySelector = new EntityFleshGolemAttackFilter();
 
     public EntityFleshGolem(final World par1World) {
 	super(par1World);
@@ -40,14 +33,13 @@ public class EntityFleshGolem extends EntityGolem {
 		6.0F));
 	tasks.addTask(8, new EntityAILookIdle(this));
 	targetTasks.addTask(2, new EntityAIHurtByTarget(this, false));
-	if (mindcontrol = true) {
-	    this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(
-		    this, EntityLiving.class, 0, false, false,
-		    attackEntitySelector));
-	} else {
-	    this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(
-		    this, EntityMob.class, 0, false, true, IMob.mobSelector));
-	}
+	if (mindcontrol = true)
+	    targetTasks.addTask(2, new EntityAINearestAttackableTarget(this,
+		    EntityLiving.class, 0, false, false,
+		    EntityFleshGolem.attackEntitySelector));
+	else
+	    targetTasks.addTask(2, new EntityAINearestAttackableTarget(this,
+		    EntityMob.class, 0, false, true, IMob.mobSelector));
     }
 
     @Override

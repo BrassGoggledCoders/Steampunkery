@@ -6,14 +6,15 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class PSmog extends Smog {
-    public PSmog(int par1, Material par2Material) {
+    public PSmog(final int par1, final Material par2Material) {
 	super(par1, par2Material);
 	setUnlocalizedName("p_smog");
     }
 
     @Override
-    public void onEntityCollidedWithBlock(World par1World, int par2, int par3,
-	    int par4, Entity par5Entity) {
+    public void onEntityCollidedWithBlock(final World par1World,
+	    final int par2, final int par3, final int par4,
+	    final Entity par5Entity) {
 	par5Entity.setInWeb();
 	par5Entity.attackEntityFrom(DamageSource.wither, 1);
     }

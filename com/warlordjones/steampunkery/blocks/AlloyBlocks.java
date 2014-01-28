@@ -2,20 +2,16 @@ package com.warlordjones.steampunkery.blocks;
 
 import java.util.List;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.packet.NetHandler;
-import net.minecraft.util.ChatMessageComponent;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
-
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class AlloyBlocks extends Block {
     public static String[] names = new String[] { "brass", "bronze", "steel" };
@@ -27,7 +23,7 @@ public class AlloyBlocks extends Block {
 	super(id, Material.anvil);
 	setStepSound(Block.soundAnvilFootstep);
 	setUnlocalizedName("alloy_blocks");
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.BlockTab);
     }
 
     @Override
@@ -49,6 +45,10 @@ public class AlloyBlocks extends Block {
 	    par3List.add(new ItemStack(par1, 1, var4));
     }
 
+    public boolean isBeaconBase() {
+	return true;
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IconRegister par1IconRegister) {
@@ -56,9 +56,5 @@ public class AlloyBlocks extends Block {
 	for (int i = 0; i < icons.length; i++)
 	    icons[i] = par1IconRegister.registerIcon("steampunkery:"
 		    + getUnlocalizedName().substring(5) + i);
-    }
-    public boolean isBeaconBase()
-    {
-	return true;
     }
 }

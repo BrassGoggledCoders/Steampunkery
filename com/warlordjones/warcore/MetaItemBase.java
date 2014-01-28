@@ -1,15 +1,14 @@
 package com.warlordjones.warcore;
 
 import java.util.List;
-import net.minecraft.client.renderer.texture.IconRegister;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
-import com.warlordjones.steampunkery.Steampunkery;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class MetaItemBase extends Item {
     public static final String[] names = new String[] { "0", "1", "2" };
@@ -39,6 +38,6 @@ public class MetaItemBase extends Item {
     public String getUnlocalizedName(final ItemStack par1ItemStack) {
 	final int i = MathHelper
 		.clamp_int(par1ItemStack.getItemDamage(), 0, 15);
-	return super.getUnlocalizedName() + "." + this.names[i];
+	return super.getUnlocalizedName() + "." + names[i];
     }
 }

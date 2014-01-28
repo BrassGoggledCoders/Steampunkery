@@ -12,10 +12,10 @@ import net.minecraft.client.model.ModelRenderer;
 
 public class ModelTeslaCoil extends ModelBase {
     public ModelRenderer center;
-    public ModelRenderer top;
     public ModelRenderer fin1;
     public ModelRenderer fin2;
     public ModelRenderer fin3;
+    public ModelRenderer top;
 
     public ModelTeslaCoil() {
 	center = new ModelRenderer(this, 0, 0);
@@ -35,7 +35,8 @@ public class ModelTeslaCoil extends ModelBase {
 
     }
 
-    public void render(float f, float f1, float f2, float f3, float f4, float f5) {
+    public void render(final float f, final float f1, final float f2,
+	    final float f3, final float f4, final float f5) {
 	this.setRotationAngles(f, f1, f2, f3, f4, f5);
 	center.render(f5);
 	top.render(f5);
@@ -44,8 +45,8 @@ public class ModelTeslaCoil extends ModelBase {
 	fin3.render(f5);
     }
 
-    public void renderModel(float f, float f1, float f2, float f3, float f4,
-	    float f5) {
+    public void renderModel(final float f, final float f1, final float f2,
+	    final float f3, final float f4, final float f5) {
 	this.setRotationAngles(f, f1, f2, f3, f4, f5);
 	center.render(f5);
 	top.render(f5);
@@ -55,8 +56,8 @@ public class ModelTeslaCoil extends ModelBase {
     }
 
     // Method you're going to want to override:
-    public void setRotationAngles(float f, float f1, float f2, float f3,
-	    float f4, float f5) {
+    public void setRotationAngles(final float f, final float f1,
+	    final float f2, final float f3, final float f4, final float f5) {
     }
 
 }

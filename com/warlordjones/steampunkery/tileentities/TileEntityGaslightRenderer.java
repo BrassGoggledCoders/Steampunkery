@@ -1,28 +1,30 @@
 package com.warlordjones.steampunkery.tileentities;
 
+import com.warlordjones.steampunkery.SteamConstants;
+import com.warlordjones.steampunkery.tileentities.models.ModelGaslight;
+
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.warlordjones.steampunkery.SteamConstants;
-import com.warlordjones.steampunkery.tileentities.models.ModelGaslight;
-
 public class TileEntityGaslightRenderer extends TileEntitySpecialRenderer {
     private static final ResourceLocation ibeamTextures = new ResourceLocation(
 	    SteamConstants.prefix + "/textures/blocks/gaslamp.png");
-    private ModelGaslight model; // yup, this refers to the last file. so you'll
-				 // get an error for now. it says what model it
-				 // has to take
+    private final ModelGaslight model; // yup, this refers to the last file. so
+				       // you'll
+				       // get an error for now. it says what
+				       // model it
+				       // has to take
 
     public TileEntityGaslightRenderer() {
 	model = new ModelGaslight();
     }
 
-    public void renderAModelAt(TileEntityGaslight tileentity, double d,
-	    double d1, double d2, float f) {
-	bindTexture(ibeamTextures);
+    public void renderAModelAt(final TileEntityGaslight tileentity,
+	    final double d, final double d1, final double d2, final float f) {
+	bindTexture(TileEntityGaslightRenderer.ibeamTextures);
 	GL11.glPushMatrix(); // start
 	GL11.glTranslatef((float) d + 0.5F, (float) d1 + 1.5F,
 		(float) d2 + 0.5F); // size
@@ -75,8 +77,9 @@ public class TileEntityGaslightRenderer extends TileEntitySpecialRenderer {
 	GL11.glPopMatrix(); // end
     }
 
-    public void renderTileEntityAt(TileEntity tileentity, double d, double d1,
-	    double d2, float f) {
+    @Override
+    public void renderTileEntityAt(final TileEntity tileentity, final double d,
+	    final double d1, final double d2, final float f) {
 	renderAModelAt((TileEntityGaslight) tileentity, d, d1, d2, f); // where
 								       // to
 								       // render

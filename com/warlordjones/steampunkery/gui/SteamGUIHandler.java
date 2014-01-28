@@ -4,31 +4,35 @@ import com.warlordjones.steampunkery.SteamExtendedPlayer;
 import com.warlordjones.steampunkery.gui.player.ContainerSteamCustomPlayer;
 import com.warlordjones.steampunkery.gui.player.GuiSteamCustomPlayerInventory;
 
+import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.network.IGuiHandler;
 
 public class SteamGUIHandler implements IGuiHandler {
 
-	/** Custom GUI indices: */
-	public static final int GUI_CUSTOM_INV = 0;
+    /** Custom GUI indices: */
+    public static final int GUI_CUSTOM_INV = 0;
 
-	// And now in CommonProxy, the class I registered as my GuiHandler:
-	@Override
-	public Object getServerGuiElement(int guiId, EntityPlayer player, World world, int x, int y, int z)
-	{
-	if (guiId == GUI_CUSTOM_INV)
-	return new ContainerSteamCustomPlayer(player, player.inventory, SteamExtendedPlayer.get(player).inventory);
+    @Override
+    public Object getClientGuiElement(final int guiId,
+	    final EntityPlayer player, final World world, final int x,
+	    final int y, final int z) {
+	if (guiId == SteamGUIHandler.GUI_CUSTOM_INV)
+	    return new GuiSteamCustomPlayerInventory(player, player.inventory,
+		    SteamExtendedPlayer.get(player).inventory);
 	else
-	return null;
-	}
+	    return null;
+    }
 
-	@Override
-	public Object getClientGuiElement(int guiId, EntityPlayer player, World world, int x, int y, int z)
-	{
-	if (guiId == GUI_CUSTOM_INV)
-	return new GuiSteamCustomPlayerInventory(player, player.inventory, SteamExtendedPlayer.get(player).inventory);
+    // And now in CommonProxy, the class I registered as my GuiHandler:
+    @Override
+    public Object getServerGuiElement(final int guiId,
+	    final EntityPlayer player, final World world, final int x,
+	    final int y, final int z) {
+	if (guiId == SteamGUIHandler.GUI_CUSTOM_INV)
+	    return new ContainerSteamCustomPlayer(player, player.inventory,
+		    SteamExtendedPlayer.get(player).inventory);
 	else
-	return null;
-	}
+	    return null;
+    }
 }

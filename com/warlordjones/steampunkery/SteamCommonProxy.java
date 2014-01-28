@@ -8,11 +8,11 @@ public class SteamCommonProxy {
 	// TODO Auto-generated method stub
     }
 
+    public void registerSoundEffects() {
+
+    }
+
     public void registerTickHandlers() {
 	// TODO Auto-generated method stub
-    }
-    public void registerSoundEffects()
-    {
-	
     }
 }

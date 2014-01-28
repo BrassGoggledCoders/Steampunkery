@@ -2,18 +2,14 @@ package com.warlordjones.steampunkery.items;
 
 import java.util.List;
 
+import com.warlordjones.steampunkery.entity.EntityMechanicalHorse;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.EnumMovingObjectType;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
-
-import com.warlordjones.steampunkery.entity.EntityMechanicalHorse;
 
 public class MechanicalHorse extends ItemBase {
     public MechanicalHorse(final int id) {

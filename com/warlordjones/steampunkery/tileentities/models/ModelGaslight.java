@@ -12,6 +12,7 @@ import net.minecraft.client.model.ModelRenderer;
 
 public class ModelGaslight extends ModelBase {
     public ModelRenderer base;
+    public ModelRenderer light;
     public ModelRenderer side;
     public ModelRenderer side1;
     public ModelRenderer side2;
@@ -19,7 +20,6 @@ public class ModelGaslight extends ModelBase {
     public ModelRenderer top;
     public ModelRenderer top2;
     public ModelRenderer top3;
-    public ModelRenderer light;
 
     public ModelGaslight() {
 	base = new ModelRenderer(this, 0, 0);
@@ -50,7 +50,8 @@ public class ModelGaslight extends ModelBase {
 	light.addBox(-1.0F, 11.0F, -1.0F, 2, 4, 2, 0);
     }
 
-    public void render(float f, float f1, float f2, float f3, float f4, float f5) {
+    public void render(final float f, final float f1, final float f2,
+	    final float f3, final float f4, final float f5) {
 	this.setRotationAngles(f, f1, f2, f3, f4, f5);
 	base.render(f5);
 	side.render(f5);
@@ -63,8 +64,8 @@ public class ModelGaslight extends ModelBase {
 	light.render(f5);
     }
 
-    public void renderModel(float f, float f1, float f2, float f3, float f4,
-	    float f5) {
+    public void renderModel(final float f, final float f1, final float f2,
+	    final float f3, final float f4, final float f5) {
 	this.setRotationAngles(f, f1, f2, f3, f4, f5);
 	base.render(f5);
 	side.render(f5);
@@ -78,8 +79,8 @@ public class ModelGaslight extends ModelBase {
     }
 
     // Method you're going to want to override:
-    public void setRotationAngles(float f, float f1, float f2, float f3,
-	    float f4, float f5) {
+    public void setRotationAngles(final float f, final float f1,
+	    final float f2, final float f3, final float f4, final float f5) {
     }
 
 }

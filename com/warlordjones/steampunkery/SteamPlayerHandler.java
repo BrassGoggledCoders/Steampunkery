@@ -2,12 +2,11 @@ package com.warlordjones.steampunkery;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.Calendar;
-import java.util.Date;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import com.warlordjones.steampunkery.util.SteamUpdateChecker;
+
+import cpw.mods.fml.common.network.IConnectionHandler;
+import cpw.mods.fml.common.network.Player;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.NetLoginHandler;
 import net.minecraft.network.packet.NetHandler;
@@ -15,11 +14,6 @@ import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.util.EnumChatFormatting;
-
-import com.warlordjones.steampunkery.util.SteamUpdateChecker;
-
-import cpw.mods.fml.common.network.IConnectionHandler;
-import cpw.mods.fml.common.network.Player;
 
 public class SteamPlayerHandler implements IConnectionHandler {
 
@@ -57,7 +51,7 @@ public class SteamPlayerHandler implements IConnectionHandler {
     public void playerLoggedIn(final Player player,
 	    final NetHandler netHandler, final INetworkManager manager) {
 	// Update Checker
-	if (ConfigSetup.update_checker_B) {
+	if (ConfigSetup.update_checker_B)
 	    try {
 		if (SteamUpdateChecker.isSteamUpdateAvailable())
 		    netHandler
@@ -80,6 +74,5 @@ public class SteamPlayerHandler implements IConnectionHandler {
 	    } catch (final IOException e) {
 		e.printStackTrace();
 	    }
-	}
     }
 }

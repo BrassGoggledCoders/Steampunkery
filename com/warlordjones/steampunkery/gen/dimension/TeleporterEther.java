@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import com.warlordjones.steampunkery.blocks.SteamBlocks;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.LongHashMap;
@@ -13,8 +15,6 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
-
-import com.warlordjones.steampunkery.blocks.SteamBlocks;
 
 public class TeleporterEther extends Teleporter {
     /** Stores successful portal placement locations for rapid lookup. */

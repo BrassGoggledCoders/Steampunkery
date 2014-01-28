@@ -1,9 +1,9 @@
 package com.warlordjones.steampunkery.gen.biome;
 
+import com.warlordjones.steampunkery.blocks.SteamBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import com.warlordjones.steampunkery.blocks.SteamBlocks;
 
 public class BiomeGenScalded extends BiomeGenBase {
     public BiomeGenScalded(final int par1) {

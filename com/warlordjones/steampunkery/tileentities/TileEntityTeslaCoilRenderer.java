@@ -1,30 +1,31 @@
 package com.warlordjones.steampunkery.tileentities;
 
+import com.warlordjones.steampunkery.SteamConstants;
+import com.warlordjones.steampunkery.tileentities.models.ModelTeslaCoil;
+
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.warlordjones.steampunkery.SteamConstants;
-import com.warlordjones.steampunkery.tileentities.models.ModelTeslaCoil;
-
 public class TileEntityTeslaCoilRenderer extends TileEntitySpecialRenderer {
     private static final ResourceLocation ibeamTextures = new ResourceLocation(
 	    SteamConstants.prefix + "/textures/blocks/tesla_coil.png");
-    private ModelTeslaCoil model; // yup, this refers to the last file. so
-				  // you'll
-				  // get an error for now. it says what model it
-				  // has
-				  // to take
+    private final ModelTeslaCoil model; // yup, this refers to the last file. so
+					// you'll
+					// get an error for now. it says what
+					// model it
+					// has
+					// to take
 
     public TileEntityTeslaCoilRenderer() {
 	model = new ModelTeslaCoil();
     }
 
-    public void renderAModelAt(TileEntityTeslaCoil tile, double d, double d1,
-	    double d2, float f) {
-	bindTexture(ibeamTextures);
+    public void renderAModelAt(final TileEntityTeslaCoil tile, final double d,
+	    final double d1, final double d2, final float f) {
+	bindTexture(TileEntityTeslaCoilRenderer.ibeamTextures);
 	GL11.glPushMatrix(); // start
 	GL11.glTranslatef((float) d + 0.5F, (float) d1 + 1.5F,
 		(float) d2 + 0.5F); // size
@@ -77,8 +78,9 @@ public class TileEntityTeslaCoilRenderer extends TileEntitySpecialRenderer {
 	GL11.glPopMatrix(); // end
     }
 
-    public void renderTileEntityAt(TileEntity tileentity, double d, double d1,
-	    double d2, float f) {
+    @Override
+    public void renderTileEntityAt(final TileEntity tileentity, final double d,
+	    final double d1, final double d2, final float f) {
 	renderAModelAt((TileEntityTeslaCoil) tileentity, d, d1, d2, f); // where
 									// to
 									// render

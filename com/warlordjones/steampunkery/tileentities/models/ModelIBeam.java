@@ -34,7 +34,8 @@ public class ModelIBeam extends ModelBase {
 
     }
 
-    public void render(float f, float f1, float f2, float f3, float f4, float f5) {
+    public void render(final float f, final float f1, final float f2,
+	    final float f3, final float f4, final float f5) {
 	this.setRotationAngles(f, f1, f2, f3, f4, f5);
 	beam_center.render(f5);
 	beam_side.render(f5);
@@ -42,16 +43,16 @@ public class ModelIBeam extends ModelBase {
     }
 
     // Method
-    public void renderModel(float f, float f1, float f2, float f3, float f4,
-	    float f5) {
+    public void renderModel(final float f, final float f1, final float f2,
+	    final float f3, final float f4, final float f5) {
 	this.setRotationAngles(f, f1, f2, f3, f4, f5);
 	beam_center.render(f5);
 	beam_side.render(f5);
 	beam_side2.render(f5);
     }
 
-    public void setRotationAngles(float f, float f1, float f2, float f3,
-	    float f4, float f5) {
+    public void setRotationAngles(final float f, final float f1,
+	    final float f2, final float f3, final float f4, final float f5) {
     }
 
 }

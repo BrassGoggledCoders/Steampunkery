@@ -1,12 +1,5 @@
 package com.warlordjones.steampunkery;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraftforge.oredict.OreDictionary;
-
 import com.warlordjones.steampunkery.blocks.AlloyBlocks;
 import com.warlordjones.steampunkery.blocks.MetalBlocks;
 import com.warlordjones.steampunkery.blocks.OreBlocks;
@@ -16,6 +9,12 @@ import com.warlordjones.steampunkery.items.MetalIngots;
 import com.warlordjones.steampunkery.items.SteamItems;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipeHandler {
     public static boolean altfleshblock = false;
@@ -146,8 +145,7 @@ public class RecipeHandler {
 			SteamItems.alloy_ingots, 1, 2));
 	// End Parts
 	GameRegistry.addRecipe(new ItemStack(SteamItems.iboat, 1), "   ",
-		"S S", "WSW", 'W', new ItemStack(Block.cloth), 'S',
-		new ItemStack(Item.stick));
+		"S S", "WSW", 'W', new ItemStack(Block.cloth), 'S', Item.stick);
 	GameRegistry.addRecipe(new ItemStack(SteamItems.goggles, 1), "lll",
 		"gbg", "   ", 'l', new ItemStack(Item.leather), 'g',
 		new ItemStack(Block.glass), 'b', new ItemStack(
@@ -167,15 +165,14 @@ public class RecipeHandler {
 	GameRegistry.addRecipe(new ItemStack(SteamBlocks.lightning_rod, 3),
 		"  c", "  c", "  c", 'c', new ItemStack(
 			SteamItems.metal_ingots, 1, 1));
-	if (altfleshblock = true) {
+	if (RecipeHandler.altfleshblock = true)
 	    GameRegistry.addShapelessRecipe(new ItemStack(
 		    SteamBlocks.flesh_block), new ItemStack(Item.rottenFlesh,
 		    0, 4));
-	} else {
+	else
 	    GameRegistry.addShapelessRecipe(new ItemStack(
 		    SteamBlocks.flesh_block), new ItemStack(Item.rottenFlesh,
 		    0, 9));
-	}
 
 	GameRegistry.addShapelessRecipe(
 		new ItemStack(SteamBlocks.soul_pumpkin), new ItemStack(

@@ -2,19 +2,15 @@ package com.warlordjones.steampunkery.items;
 
 import java.util.List;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-public class AlloyDusts extends Item {
+public class AlloyDusts extends ItemBase {
     public static final String[] names = new String[] { "0", "1", "2" };
     @SideOnly(Side.CLIENT)
     private Icon[] icons;
@@ -23,7 +19,6 @@ public class AlloyDusts extends Item {
     public AlloyDusts(final int id) {
 	super(id);
 	setHasSubtypes(true);
-	setCreativeTab(Steampunkery.steampunkeryTab);
 	setUnlocalizedName("alloy_dusts");
     }
 

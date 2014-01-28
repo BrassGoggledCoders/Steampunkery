@@ -1,8 +1,8 @@
 package com.warlordjones.steampunkery;
 
-import net.minecraftforge.common.MinecraftForge;
-
 import com.warlordjones.steampunkery.blocks.SteamBlocks;
+
+import net.minecraftforge.common.MinecraftForge;
 
 public class SteamForge {
     static void MinecraftForgeSetup() {

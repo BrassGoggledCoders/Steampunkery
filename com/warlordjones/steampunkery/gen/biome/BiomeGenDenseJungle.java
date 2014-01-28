@@ -1,17 +1,17 @@
 package com.warlordjones.steampunkery.gen.biome;
 
+import com.warlordjones.steampunkery.entity.EntitySkySquid;
+
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.world.biome.BiomeGenJungle;
 import net.minecraft.world.biome.SpawnListEntry;
 
-import com.warlordjones.steampunkery.entity.EntitySkySquid;
-
 public class BiomeGenDenseJungle extends BiomeGenJungle {
     public BiomeGenDenseJungle(final int par1) {
 	super(par1);
 	setBiomeName("Dense Jungle");
-	this.setMinMaxHeight(0.1F, 0.2F);
+	setMinMaxHeight(0.1F, 0.2F);
 	theBiomeDecorator.treesPerChunk = 999;
 	theBiomeDecorator.grassPerChunk = 200;
 	theBiomeDecorator.flowersPerChunk = 10;

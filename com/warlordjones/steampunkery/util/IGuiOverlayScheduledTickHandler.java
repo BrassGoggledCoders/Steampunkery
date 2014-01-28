@@ -3,6 +3,12 @@ package com.warlordjones.steampunkery.util;
 import java.util.EnumSet;
 import java.util.logging.Level;
 
+import com.warlordjones.steampunkery.ConfigSetup;
+import com.warlordjones.steampunkery.items.SteamItems;
+
+import cpw.mods.fml.common.IScheduledTickHandler;
+import cpw.mods.fml.common.ITickHandler;
+import cpw.mods.fml.common.TickType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.Tessellator;
@@ -10,13 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
-
-import com.warlordjones.steampunkery.ConfigSetup;
-import com.warlordjones.steampunkery.items.SteamItems;
-
-import cpw.mods.fml.common.IScheduledTickHandler;
-import cpw.mods.fml.common.ITickHandler;
-import cpw.mods.fml.common.TickType;
 
 public class IGuiOverlayScheduledTickHandler implements ITickHandler,
 	IScheduledTickHandler {
@@ -64,9 +63,8 @@ public class IGuiOverlayScheduledTickHandler implements ITickHandler,
 		return;
 	} else
 	    return;
-	if (ConfigSetup.debug_mode_B = true) {
+	if (ConfigSetup.debug_mode_B = true)
 	    SteamLog.log(Level.INFO, "Tick...");
-	}
     }
 
     @Override

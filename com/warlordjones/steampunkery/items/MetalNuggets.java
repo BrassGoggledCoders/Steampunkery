@@ -2,17 +2,16 @@ package com.warlordjones.steampunkery.items;
 
 import java.util.List;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
-
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class MetalNuggets extends Item {
     public static final String[] names = new String[] { "0", "1", "2", "3" };
@@ -23,7 +22,7 @@ public class MetalNuggets extends Item {
     public MetalNuggets(final int id) {
 	super(id);
 	setHasSubtypes(true);
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.ItemTab);
 	setUnlocalizedName("metal_nuggets");
     }
 

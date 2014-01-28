@@ -2,19 +2,24 @@ package com.warlordjones.steampunkery.gen;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkProvider;
-
 import com.warlordjones.steampunkery.SteamConstants;
 import com.warlordjones.steampunkery.blocks.SteamBlocks;
 import com.warlordjones.warcore.SmartOreGeneration;
 
 import cpw.mods.fml.common.IWorldGenerator;
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
 import Reika.DragonAPI.Interfaces.RetroactiveGenerator;
 
 public class RetroGenerationHandler implements IWorldGenerator,
 	RetroactiveGenerator {
+    @Override
+    public boolean canGenerateAt(final Random rand, final World world,
+	    final int chunkX, final int chunkZ) {
+	return true;
+    }
+
     @Override
     public void generate(final Random random, final int chunkX,
 	    final int chunkZ, final World world,
@@ -33,25 +38,9 @@ public class RetroGenerationHandler implements IWorldGenerator,
 
     }
 
-    private void generateEther(final World world, final Random random,
-	    final int x, final int z) {
-    }
-
-    private void generateEnd(final World world, final Random random,
-	    final int x, final int z) {
-    }
-
-    private void generateNether(final World world, final Random random,
-	    final int x, final int z) {
-    }
-
-    private void generateSurface(final World world, final Random random,
-	    final int x, final int z) {
-
-    }
-
     @Override
-    public void generate(Random rand, World world, int chunkX, int chunkZ) {
+    public void generate(final Random rand, final World world,
+	    final int chunkX, final int chunkZ) {
 
 	final int chunkXcoord = chunkX + rand.nextInt(16);
 	final int Ycoord = 10 + rand.nextInt(60);
@@ -71,24 +60,34 @@ public class RetroGenerationHandler implements IWorldGenerator,
 	new SmartOreGeneration(SteamBlocks.slate.blockID, 0, 25, 50,
 		Block.stone.blockID).generate(world, rand, chunkXcoord, Ycoord,
 		chunkzcoord);
-	int RandPoschunkX = chunkX + rand.nextInt(16);
-	int RandPosY = rand.nextInt(4);
-	int RandPoschunkz = chunkZ + rand.nextInt(16);
-	for (int k = 0; k < 50; k++) {
+	final int RandPoschunkX = chunkX + rand.nextInt(16);
+	final int RandPosY = rand.nextInt(4);
+	final int RandPoschunkz = chunkZ + rand.nextInt(16);
+	for (int k = 0; k < 50; k++)
 	    new WorldGenBedrockFissure().generate(world, rand, RandPoschunkX,
 		    RandPosY, RandPoschunkz);
-	}
-    }
-
-    @Override
-    public boolean canGenerateAt(Random rand, World world, int chunkX,
-	    int chunkZ) {
-	return true;
     }
 
     @Override
     public String getIDString() {
 	// TODO Auto-generated method stub
 	return SteamConstants.prefix + "retrogenhandler";
+    }
+
+    private void generateEnd(final World world, final Random random,
+	    final int x, final int z) {
+    }
+
+    private void generateEther(final World world, final Random random,
+	    final int x, final int z) {
+    }
+
+    private void generateNether(final World world, final Random random,
+	    final int x, final int z) {
+    }
+
+    private void generateSurface(final World world, final Random random,
+	    final int x, final int z) {
+
     }
 }

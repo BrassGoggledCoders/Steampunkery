@@ -1,10 +1,10 @@
 package com.warlordjones.steampunkery.items.tool;
 
+import com.warlordjones.steampunkery.items.ItemBase;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
-
-import com.warlordjones.steampunkery.items.ItemBase;
 
 public class Machete extends ItemBase {
     public float efficiencyOnProperMaterial = 8.0F;

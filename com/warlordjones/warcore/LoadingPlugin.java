@@ -4,16 +4,16 @@ import java.util.Map;
 
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
-public class LoadingPlugin implements IFMLLoadingPlugin{
+public class LoadingPlugin implements IFMLLoadingPlugin {
 
     @Override
-    public String[] getLibraryRequestClass() {
+    public String[] getASMTransformerClass() {
 	// TODO Auto-generated method stub
 	return null;
     }
 
     @Override
-    public String[] getASMTransformerClass() {
+    public String[] getLibraryRequestClass() {
 	// TODO Auto-generated method stub
 	return null;
     }
@@ -31,9 +31,9 @@ public class LoadingPlugin implements IFMLLoadingPlugin{
     }
 
     @Override
-    public void injectData(Map<String, Object> data) {
+    public void injectData(final Map<String, Object> data) {
 	// TODO Auto-generated method stub
-	
+
     }
 
 }

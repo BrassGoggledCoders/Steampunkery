@@ -2,6 +2,10 @@ package com.warlordjones.steampunkery.items;
 
 import java.util.List;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -11,11 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class Net extends ItemBase {
     public static Entity creature_name;
@@ -27,7 +26,7 @@ public class Net extends ItemBase {
     public Net(final int id) {
 	super(id);
 	setHasSubtypes(true);
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.ItemTab);
 	setUnlocalizedName("net");
     }
 
@@ -48,7 +47,31 @@ public class Net extends ItemBase {
     public String getUnlocalizedName(final ItemStack par1ItemStack) {
 	final int i = MathHelper
 		.clamp_int(par1ItemStack.getItemDamage(), 0, 15);
-	return super.getUnlocalizedName() + "." + names[i];
+	return super.getUnlocalizedName() + "." + Net.names[i];
+    }
+
+    @Override
+    public boolean itemInteractionForEntity(final ItemStack par1ItemStack,
+	    final EntityPlayer par2EntityPlayer,
+	    final EntityLivingBase par3EntityLivingBase) {
+	par3EntityLivingBase.setDead();
+	creature_name = par3EntityLivingBase;
+	par1ItemStack.setItemDamage(1);
+	return true;
+    }
+
+    @Override
+    public boolean onItemUse(final ItemStack par1ItemStack,
+	    final EntityPlayer par2EntityPlayer, final World par3World,
+	    final int par4, final int par5, final int par6, final int par7,
+	    final float par8, final float par9, final float par10) {
+	if (par3World.isRemote)
+	    return true;
+	else {
+	    par3World.spawnEntityInWorld(Net.creature_name);
+	    par1ItemStack.setItemDamage(0);
+	    return true;
+	}
     }
 
     @Override
@@ -58,25 +81,5 @@ public class Net extends ItemBase {
 	for (int i = 0; i < icons.length; i++)
 	    icons[i] = par1IconRegister.registerIcon("steampunkery:"
 		    + this.getUnlocalizedName().substring(5) + i);
-    }
-
-    public boolean itemInteractionForEntity(ItemStack par1ItemStack,
-	    EntityPlayer par2EntityPlayer, EntityLivingBase par3EntityLivingBase) {
-	par3EntityLivingBase.setDead();
-	this.creature_name = par3EntityLivingBase;
-	par1ItemStack.setItemDamage(1);
-	return true;
-    }
-
-    public boolean onItemUse(ItemStack par1ItemStack,
-	    EntityPlayer par2EntityPlayer, World par3World, int par4, int par5,
-	    int par6, int par7, float par8, float par9, float par10) {
-	if (par3World.isRemote) {
-	    return true;
-	} else {
-	    par3World.spawnEntityInWorld(creature_name);
-	    par1ItemStack.setItemDamage(0);
-	    return true;
-	}
     }
 }

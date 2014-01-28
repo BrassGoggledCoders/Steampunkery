@@ -1,5 +1,11 @@
 package com.warlordjones.steampunkery.entity.render;
 
+import com.warlordjones.steampunkery.SteamConstants;
+import com.warlordjones.steampunkery.entity.EntityIBoat;
+import com.warlordjones.steampunkery.entity.model.ModelIBoat;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
@@ -7,13 +13,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
-
-import com.warlordjones.steampunkery.SteamConstants;
-import com.warlordjones.steampunkery.entity.EntityIBoat;
-import com.warlordjones.steampunkery.entity.model.ModelIBoat;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderIBoat extends Render {

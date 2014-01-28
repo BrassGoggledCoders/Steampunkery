@@ -2,6 +2,10 @@ package com.warlordjones.steampunkery.blocks;
 
 import java.util.Random;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -11,11 +15,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.WorldInfo;
 
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class LightningRod extends Block {
     public static boolean strike = false;
 
@@ -23,7 +22,7 @@ public class LightningRod extends Block {
 	super(par1, par2Material);
 	setTickRandomly(true);
 	setUnlocalizedName("lightning_rod");
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.BlockTab);
     }
 
     /**
@@ -156,8 +155,8 @@ public class LightningRod extends Block {
     public void updateTick(final World par1World, final int par2,
 	    final int par3, final int par4, final Random par5Random,
 	    final WorldInfo par6WorldInfo) {
-	boolean isThundering = par1World.isThundering();
-	if (isThundering = true) {
+	par1World.isThundering();
+	if (true) {
 	    final EntityLightningBolt entitylightning = new EntityLightningBolt(
 		    par1World, par2 + 0.5F, par3 + 0.5F, par4 + 0.5F);
 	    par1World.spawnEntityInWorld(entitylightning);

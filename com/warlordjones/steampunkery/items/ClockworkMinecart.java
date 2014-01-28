@@ -4,7 +4,7 @@ import net.minecraft.item.ItemMinecart;
 
 public class ClockworkMinecart extends ItemMinecart {
 
-    public ClockworkMinecart(int par1, int par2) {
+    public ClockworkMinecart(final int par1, final int par2) {
 	super(par1, par2);
 	// TODO Auto-generated constructor stub
     }

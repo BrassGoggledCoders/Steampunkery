@@ -1,17 +1,16 @@
 package com.warlordjones.steampunkery.items;
 
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.item.Item;
-
 import com.warlordjones.steampunkery.Steampunkery;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.item.Item;
 
 public class ItemBase extends Item {
     public ItemBase(final int id) {
 	super(id);
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.ItemTab);
     }
 
     @Override

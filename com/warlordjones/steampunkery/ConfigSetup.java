@@ -1,103 +1,102 @@
 package com.warlordjones.steampunkery;
 
 import java.io.File;
-import java.util.logging.Level;
-
-import com.warlordjones.steampunkery.util.SteamLog;
 
 import net.minecraftforge.common.Configuration;
 
 public class ConfigSetup {
 
-    public static int netID;
-    public static int organsID;
-    // Block ID's
-    public static int metal_blocksID, alloy_blocksID, ore_blocksID;
+    public static boolean aluminum_ore_B;
+    public static int aluminum_ore_chance;
+    public static int aluminum_ore_veinsize;
     public static int asteroid_blockID, asteroid_ironID;
+    public static int bolted_steelID;
+    public static int bombID;
     public static int brass_partsID, steel_partsID;
+    public static int brass_plaqueID;
     public static int bulletID;
+    public static int clockwork_minecartID;
     public static int cloudy_etherID, smogID;
+    public static int conveyorID;
+    public static boolean copper_ore_B;
+    public static int copper_ore_chance;
+    public static int copper_ore_veinsize;
+    public static int cryo_playerID;
+    public static boolean debug_mode_B;
+    public static int deep_carpet_itemblocksID;
+    public static int deep_carpetID;
+    public static int deeps_biomeID;
+    public static int deeps_blockID;
+    public static int deepsID;
+    public static boolean dense_jungle_B;
+    public static int dense_jungle_MID;
+    public static int dense_jungleID;
+    public static int drawplateID;
     public static int eldritch_metalID;
+    // Biome ID's
+    public static int ether_biomeID;
+    // Dimension ID's
+    public static int etherID;
     public static int flesh_blockID, soul_pumpkinID;
     public static int gaslampID, gaslightID, gaslight_frameID, lightning_rodID;
     public static int gogglesID;
+    public static int gun_barrelID, tank_trackID, engine_blockID;
+    public static int hammerID;
+    public static int hatchID;
     public static int hot_mudID;
+    public static int ibeamID;
     public static int iboatID;
     public static int item_baseID;
     public static int macheteID;
+    public static int mechanical_horseID;
     public static int mercury_dirtID;
-    public static int psmogID;
-    public static int deeps_blockID;
-    public static int ibeamID;
-    public static int sky_railID;
-    public static int deep_carpetID;
-    public static int cryo_playerID;
-    public static int brass_plaqueID;
-    public static int bolted_steelID;
+    // Block ID's
+    public static int metal_blocksID, alloy_blocksID, ore_blocksID;
+    public static int metal_dustsID, alloy_dustsID;
     // Item ID's
     public static int metal_ingotsID, alloy_ingotsID;
     public static int metal_itemblocksID, alloy_itemblocksID, ore_itemblocksID;
+    public static int metal_nuggetsID, alloy_nuggetsID;
     public static int metal_platesID, alloy_platesID;
+
     public static int meteorID;
     public static int musketID;
+    public static int netID;
+    public static int organsID;
     public static int pipe_wrenchID;
     public static int portalID;
-    public static int slateID, slate_cobbleID, slate_brickID, slate_slabID,
-	    slate_stairID;
-    public static int gun_barrelID, tank_trackID, engine_blockID;
-    public static int telescopeID;
+    public static int psmogID;
     public static int respiratorID;
-    public static int toolbeltID;
-    public static int clockwork_minecartID;
-    public static int deep_carpet_itemblocksID;
-    public static int hammerID;
-    public static int thread_tapID;
-    public static int drawplateID;
-    public static int metal_nuggetsID, alloy_nuggetsID;
-    public static int metal_dustsID, alloy_dustsID;
-    public static int vanilla_dustsID;
-    // Armour ID's
-    public static int wandererHelmetID;
-    public static int wandererChestplateID;
-    public static int wandererLeggingsID;
-    public static int wandererBootsID;
-
+    public static boolean retrogen_B;
     // Booleans
     public static boolean scalded_lands_B;
-    public static boolean dense_jungle_B;
-    public static boolean debug_mode_B;
-    public static boolean update_checker_B;
-    public static boolean structureddeepsentrance_B;
-    public static boolean world_gen_B;
-    // Biome ID's
-    public static int ether_biomeID;
-    public static int deeps_biomeID;
-    public static int dense_jungleID;
     public static int scalded_landsID;
-    // Dimension ID's
-    public static int etherID;
-    public static int deepsID;
-    public static int tesla_coilID;
-    public static int mechanical_horseID;
-    public static int dense_jungle_MID;
+    public static int sky_railID;
+    public static int slateID, slate_cobbleID, slate_brickID, slate_slabID,
+	    slate_stairID;
+    public static int steam_blockID;
+    public static boolean structureddeepsentrance_B;
     public static int tankID;
-    public static int bombID;
-    public static int vanilla_platesID;
-    public static int hatchID;
-    public static boolean retrogen_B;
-    public static boolean aluminum_ore_B;
-    public static boolean copper_ore_B;
+    public static int telescopeID;
+    public static int tesla_coilID;
+    public static int thread_tapID;
     public static boolean tin_ore_B;
-    public static boolean zinc_ore_B;
-    public static int aluminum_ore_chance;
-    public static int copper_ore_chance;
     public static int tin_ore_chance;
-    public static int zinc_ore_chance;
-    public static int aluminum_ore_veinsize;
-    public static int copper_ore_veinsize;
     public static int tin_ore_veinsize;
+    public static int toolbeltID;
+    public static boolean update_checker_B;
+    public static int vanilla_dustsID;
+    public static int vanilla_platesID;
+    public static int wandererBootsID;
+    public static int wandererChestplateID;
+    // Armour ID's
+    public static int wandererHelmetID;
+    public static int wandererLeggingsID;
+    public static boolean world_gen_B;
+    public static boolean zinc_ore_B;
+    public static int zinc_ore_chance;
     public static int zinc_ore_veinsize;
-    public static int conveyorID;
+    public static int steam_bucketID;
 
     static void SetupConfiguration(final File configFile) {
 	// Configuration Code
@@ -192,24 +191,34 @@ public class ConfigSetup {
 	ConfigSetup.cryo_playerID = config.get("Blocks",
 		"Frozen Player Block ID", block_id).getInt();
 	block_id++;
-	brass_plaqueID = config
-		.get("Blocks", "Brass Plaque Block ID", block_id).getInt();
+	ConfigSetup.brass_plaqueID = config.get("Blocks",
+		"Brass Plaque Block ID", block_id).getInt();
 	block_id++;
-	tankID = config.get("Blocks", "Tank Block ID", block_id).getInt();
+	ConfigSetup.tankID = config.get("Blocks", "Tank Block ID", block_id)
+		.getInt();
 	block_id++;
-	bombID = config.get("Blocks", "Bomb ID", block_id).getInt();
+	ConfigSetup.bombID = config.get("Blocks", "Bomb ID", block_id).getInt();
 	block_id++;
-	bolted_steelID = config.get("Blocks", "Bolted Steel ID", block_id).getInt();
+	ConfigSetup.bolted_steelID = config.get("Blocks", "Bolted Steel ID",
+		block_id).getInt();
 	block_id++;
-	gun_barrelID = config.get("Blocks", "Gun Barrel ID", block_id).getInt();
+	ConfigSetup.gun_barrelID = config.get("Blocks", "Gun Barrel ID",
+		block_id).getInt();
 	block_id++;
-	tank_trackID = config.get("Blocks", "Tank Track ID", block_id).getInt();
+	ConfigSetup.tank_trackID = config.get("Blocks", "Tank Track ID",
+		block_id).getInt();
 	block_id++;
-	engine_blockID = config.get("Blocks", "Engine Block ID", block_id).getInt();
+	ConfigSetup.engine_blockID = config.get("Blocks", "Engine Block ID",
+		block_id).getInt();
 	block_id++;
-	hatchID = config.get("Blocks", "Hatch ID", block_id).getInt();
+	ConfigSetup.hatchID = config.get("Blocks", "Hatch ID", block_id)
+		.getInt();
 	block_id++;
-	conveyorID = config.get("Blocks", "Conveyor Belt ID", block_id).getInt();
+	ConfigSetup.conveyorID = config.get("Blocks", "Conveyor Belt ID",
+		block_id).getInt();
+	block_id++;
+	ConfigSetup.steam_blockID = config.get("Blocks", "Steam Block ID",
+		block_id).getInt();
 	int gen_blocksID = 200;
 	ConfigSetup.hot_mudID = config.get("Gen blocks", "Hot Mud ID",
 		gen_blocksID).getInt();
@@ -295,7 +304,7 @@ public class ConfigSetup {
 	ConfigSetup.organsID = config.get("Items", "Organs ID", item_id)
 		.getInt();
 	item_id++;
-	netID = config.get("Items", "Net ID", item_id).getInt();
+	ConfigSetup.netID = config.get("Items", "Net ID", item_id).getInt();
 	item_id++;
 	ConfigSetup.metal_nuggetsID = config.get("Items", "Metal Nuggets ID",
 		item_id).getInt();
@@ -312,8 +321,10 @@ public class ConfigSetup {
 	ConfigSetup.vanilla_dustsID = config.get("Items", "Vanilla Powders ID",
 		item_id).getInt();
 	item_id++;
-	vanilla_platesID = config.get("Items", "Vanilla Plates ID", item_id)
-		.getInt();
+	ConfigSetup.vanilla_platesID = config.get("Items", "Vanilla Plates ID",
+		item_id).getInt();
+	item_id++;
+	steam_bucketID = config.get("Items", "Steam Bucket ID", item_id).getInt();
 	// Armour
 
 	ConfigSetup.wandererHelmetID = config.get("Items", "Wanderer Cap ID",
@@ -348,46 +359,58 @@ public class ConfigSetup {
 	ConfigSetup.scalded_landsID = config.get("Biomes",
 		"Scalded Lands Biome ID", biome_id).getInt();
 	// Booleans
-		// Dimensions
-		// config.get("Booleans","Ether Dimension Enabled?",true).getBoolean(true);
-		// Debug Mode
-		debug_mode_B = config.get("Booleans", "Debug mode enabled?", false)
-			.getBoolean(false);
-		// Update Checker
-		update_checker_B = config.get("Booleans", "Update Checker enabled?",
+	// Dimensions
+	// config.get("Booleans","Ether Dimension Enabled?",true).getBoolean(true);
+	// Debug Mode
+	ConfigSetup.debug_mode_B = config.get("Booleans",
+		"Debug mode enabled?", false).getBoolean(false);
+	// Update Checker
+	ConfigSetup.update_checker_B = config.get("Booleans",
+		"Update Checker enabled?", true).getBoolean(true);
+	// World Gen
+	ConfigSetup.structureddeepsentrance_B = config
+		.get("World Gen",
+			"If false you can enter the Deeps anywhere at the world bottom. If true you must find a bedrock fissure",
 			true).getBoolean(true);
-		//World Gen
-		structureddeepsentrance_B = config
-			.get("World Gen",
-				"If false you can enter the Deeps anywhere at the world bottom. If true you must find a bedrock fissure",
-				true).getBoolean(true);
-		
-		world_gen_B = config
-			.get("World Gen",
-				"World Generation Enabled? WARNING! Removes access to Deeps Dimension...",
-				true).getBoolean(true);
-		retrogen_B = config
-			.get("World Gen",
-				"RetroGeneration Enabled (ONLY works if DragonApi installed anyway)",
-				false).getBoolean(false);
-		// Biomes
-		scalded_lands_B = config.get("World Gen",
-				"Scalded Lands Biome Enabled?", true).getBoolean(true);
-		dense_jungle_B = config.get("World Gen", "Dense Jungle Biome Enabled?",
-				true).getBoolean(true);
-		//Ores
-		aluminum_ore_B = config.get("World Gen", "Aluminum Ore spawning enabled?", true).getBoolean(true);
-		copper_ore_B = config.get("World Gen", "Copper Ore spawning enabled?", true).getBoolean(true);
-		tin_ore_B = config.get("World Gen", "Tin Ore spawning enabled?", true).getBoolean(true);
-		zinc_ore_B = config.get("World Gen", "Zinc Ore spawning enabled?", true).getBoolean(true);
-		aluminum_ore_chance = config.get("World Gen", "Aluminum Ore Rarity", 40).getInt();
-		copper_ore_chance = config.get("World Gen", "Copper Ore Rarity", 40).getInt();
-		tin_ore_chance = config.get("World Gen", "Tin Ore Rarity", 40).getInt();
-		zinc_ore_chance = config.get("World Gen", "Zinc Ore Rarity", 40).getInt();
-		aluminum_ore_veinsize = config.get("World Gen", "Aluminum Ore Vein Size", 3).getInt();
-		copper_ore_veinsize = config.get("World Gen", "Copper Ore Vein Size", 15).getInt();
-		tin_ore_veinsize = config.get("World Gen", "Tin Ore Vein Size", 5).getInt();
-		zinc_ore_veinsize = config.get("World Gen", "Zinc Ore Vein Size", 3).getInt();
+
+	ConfigSetup.world_gen_B = config
+		.get("World Gen",
+			"World Generation Enabled? WARNING! Removes access to Deeps Dimension...",
+			true).getBoolean(true);
+	ConfigSetup.retrogen_B = config
+		.get("World Gen",
+			"RetroGeneration Enabled (ONLY works if DragonApi installed anyway)",
+			false).getBoolean(false);
+	// Biomes
+	ConfigSetup.scalded_lands_B = config.get("World Gen",
+		"Scalded Lands Biome Enabled?", true).getBoolean(true);
+	ConfigSetup.dense_jungle_B = config.get("World Gen",
+		"Dense Jungle Biome Enabled?", true).getBoolean(true);
+	// Ores
+	ConfigSetup.aluminum_ore_B = config.get("World Gen",
+		"Aluminum Ore spawning enabled?", true).getBoolean(true);
+	ConfigSetup.copper_ore_B = config.get("World Gen",
+		"Copper Ore spawning enabled?", true).getBoolean(true);
+	ConfigSetup.tin_ore_B = config.get("World Gen",
+		"Tin Ore spawning enabled?", true).getBoolean(true);
+	ConfigSetup.zinc_ore_B = config.get("World Gen",
+		"Zinc Ore spawning enabled?", true).getBoolean(true);
+	ConfigSetup.aluminum_ore_chance = config.get("World Gen",
+		"Aluminum Ore Rarity", 40).getInt();
+	ConfigSetup.copper_ore_chance = config.get("World Gen",
+		"Copper Ore Rarity", 40).getInt();
+	ConfigSetup.tin_ore_chance = config.get("World Gen", "Tin Ore Rarity",
+		40).getInt();
+	ConfigSetup.zinc_ore_chance = config.get("World Gen",
+		"Zinc Ore Rarity", 40).getInt();
+	ConfigSetup.aluminum_ore_veinsize = config.get("World Gen",
+		"Aluminum Ore Vein Size", 3).getInt();
+	ConfigSetup.copper_ore_veinsize = config.get("World Gen",
+		"Copper Ore Vein Size", 15).getInt();
+	ConfigSetup.tin_ore_veinsize = config.get("World Gen",
+		"Tin Ore Vein Size", 5).getInt();
+	ConfigSetup.zinc_ore_veinsize = config.get("World Gen",
+		"Zinc Ore Vein Size", 3).getInt();
 	config.save();
     }
 }

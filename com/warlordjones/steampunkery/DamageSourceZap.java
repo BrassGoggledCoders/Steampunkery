@@ -5,13 +5,14 @@ import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.util.DamageSource;
 
 public class DamageSourceZap extends DamageSource {
-    protected DamageSourceZap(String par1Str) {
+    protected DamageSourceZap(final String par1Str) {
 	super(par1Str);
 	// TODO Auto-generated constructor stub
     }
 
+    @Override
     public ChatMessageComponent getDeathMessage(
-	    EntityLivingBase par1EntityLivingBase) {
+	    final EntityLivingBase par1EntityLivingBase) {
 	return ChatMessageComponent.createFromText(par1EntityLivingBase
 		.getEntityName() + "was electrocuted");
 

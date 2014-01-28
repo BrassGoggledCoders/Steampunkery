@@ -2,19 +2,16 @@ package com.warlordjones.steampunkery.gen;
 
 import java.util.Random;
 
+import com.warlordjones.steampunkery.blocks.SteamBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.warlordjones.steampunkery.blocks.SteamBlocks;
-
 public class WorldGenBedrockFissure extends WorldGenerator {
-    protected int[] GetValidSpawnBlocks() {
-	return new int[] { Block.bedrock.blockID, Block.stone.blockID };
-    }
-
     @Override
-    public boolean generate(World world, Random rand, int i, int j, int k) {
+    public boolean generate(final World world, final Random rand, final int i,
+	    final int j, final int k) {
 	world.setBlock(i + 0, j + 1, k + 1, Block.bedrock.blockID);
 	world.setBlock(i + 0, j + 1, k + 2, Block.bedrock.blockID);
 	world.setBlock(i + 0, j + 1, k + 3, Block.bedrock.blockID);
@@ -222,6 +219,10 @@ public class WorldGenBedrockFissure extends WorldGenerator {
 
 	return true;
 
+    }
+
+    protected int[] GetValidSpawnBlocks() {
+	return new int[] { Block.bedrock.blockID, Block.stone.blockID };
     }
 
 }

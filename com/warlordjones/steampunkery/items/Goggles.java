@@ -1,18 +1,14 @@
 package com.warlordjones.steampunkery.items;
 
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-
-import com.warlordjones.steampunkery.SteamExtendedPlayer;
 import com.warlordjones.steampunkery.Steampunkery;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 
 public class Goggles extends ItemArmor {
     public Goggles(final int par1,
@@ -22,7 +18,7 @@ public class Goggles extends ItemArmor {
 	setMaxStackSize(1);
 	setMaxDamage(0);
 	setUnlocalizedName("goggles");
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.ItemTab);
 	setHasSubtypes(false);
     }
 

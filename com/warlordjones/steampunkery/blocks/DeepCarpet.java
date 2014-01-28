@@ -2,16 +2,15 @@ package com.warlordjones.steampunkery.blocks;
 
 import java.util.List;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockCarpet;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class DeepCarpet extends BlockCarpet {
     public static String[] names = new String[] { "red", "green", "gold" };
@@ -22,7 +21,7 @@ public class DeepCarpet extends BlockCarpet {
     public DeepCarpet(final int id) {
 	super(id);
 	setUnlocalizedName("deep_carpet");
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.BlockTab);
     }
 
     @Override

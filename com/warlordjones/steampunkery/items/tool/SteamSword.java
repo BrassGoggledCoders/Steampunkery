@@ -1,35 +1,34 @@
 package com.warlordjones.steampunkery.items.tool;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemSword;
 import net.minecraft.world.World;
 
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class SteamSword extends ItemSword {
-    /** Reference to the World object. */
-    public World worldObj;
-    public double prevPosX;
-    public double prevPosY;
-    public double prevPosZ;
-
     /** Entity position X */
     public double posX;
-
     /** Entity position Y */
     public double posY;
-
     /** Entity position Z */
     public double posZ;
+    public double prevPosX;
+
+    public double prevPosY;
+
+    public double prevPosZ;
+
+    /** Reference to the World object. */
+    public World worldObj;
 
     public SteamSword(final int par1,
 	    final EnumToolMaterial par2EnumToolMaterial) {
 	super(par1, par2EnumToolMaterial);
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.ItemTab);
     }
 
     @Override

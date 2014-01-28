@@ -2,6 +2,10 @@ package com.warlordjones.steampunkery.blocks;
 
 import java.util.List;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -9,28 +13,29 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class SlateSlab extends BlockHalfSlab {
     public static String[] names = new String[] { "smooth", "cobble", "brick" };
     @SideOnly(Side.CLIENT)
     private Icon[] icons;
-    int number_blocks = 3;
     protected final boolean isDoubleSlab;
+    int number_blocks = 3;
 
-    public SlateSlab(int id, boolean par2, Material par3Material) {
+    public SlateSlab(final int id, final boolean par2,
+	    final Material par3Material) {
 	super(id, par2, Material.anvil);
-	this.isDoubleSlab = par2;
+	isDoubleSlab = par2;
 	setUnlocalizedName("slate_slab");
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.BlockTab);
     }
 
     @Override
     public int damageDropped(final int par1) {
 	return par1;
+    }
+
+    @Override
+    public String getFullSlabName(final int i) {
+	return "slate";
     }
 
     @Override
@@ -54,10 +59,5 @@ public class SlateSlab extends BlockHalfSlab {
 	for (int i = 0; i < icons.length; i++)
 	    icons[i] = par1IconRegister.registerIcon("steampunkery:"
 		    + getUnlocalizedName().substring(5) + i);
-    }
-
-    @Override
-    public String getFullSlabName(int i) {
-	return "slate";
     }
 }

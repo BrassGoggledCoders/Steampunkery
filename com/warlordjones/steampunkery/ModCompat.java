@@ -2,11 +2,6 @@ package com.warlordjones.steampunkery;
 
 import java.util.logging.Level;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.oredict.OreDictionary;
-
 import com.warlordjones.steampunkery.blocks.SteamBlocks;
 import com.warlordjones.steampunkery.entity.EntitySkySquid;
 import com.warlordjones.steampunkery.items.SteamItems;
@@ -15,6 +10,10 @@ import com.warlordjones.steampunkery.util.SteamLog;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInterModComms;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.oredict.OreDictionary;
 
 import morph.api.Ability;
 
@@ -63,10 +62,9 @@ public class ModCompat {
 	    RecipeHandler.altfleshblock = true;
 	    SteamLog.log(Level.INFO,
 		    "Steampunkery: Thaumcraft Detected - Compat Loading");
-	} else {
+	} else
 	    SteamLog.log(Level.INFO,
 		    "Steampunkery: Thaumcraft not found - Compat not Loading");
-	}
 	if (Loader.isModLoaded("ThermalExpansion")) {
 	    SteamLog.log(Level.INFO,
 		    "ThermalExpansion Detected - Compat Loading");
@@ -115,15 +113,14 @@ public class ModCompat {
 	} else
 	    SteamLog.log(Level.INFO,
 		    "ThemalExpansion Not Detected - Compat not Loading");
-	if (Loader.isModLoaded("GalacticraftCore")) {
+	if (Loader.isModLoaded("GalacticraftCore"))
 	    SteamLog.log(
 		    Level.WARNING,
 		    "Using Galacticraft and Steampunkery together is not reccomended. Steampunkery provides it's own planetary system.");
-	} else {
+	else
 	    SteamLog.log(
 		    Level.INFO,
 		    "Galacticraft not Loaded. Glad you find WarCorp's version of the Solar System sufficient!");
-	}
     }
 
     public static void morphCompat() {

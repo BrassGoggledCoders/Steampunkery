@@ -1,14 +1,17 @@
 package com.warlordjones.steampunkery.entity;
 
-import net.minecraft.entity.EntityEggInfo;
-import net.minecraft.entity.EntityList;
-
 import com.warlordjones.steampunkery.ConfigSetup;
 import com.warlordjones.steampunkery.Steampunkery;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
+import net.minecraft.entity.EntityEggInfo;
+import net.minecraft.entity.EntityList;
 
 public class EntitySetup {
+    public static void addEntitySpawns() {
+
+    }
+
     public static void registerEntities() {
 	int entity_id = 1;
 	EntityRegistry.registerModEntity(EntityFleshGolem.class, "Flesh Golem",
@@ -30,18 +33,13 @@ public class EntitySetup {
 	EntityRegistry.registerModEntity(EntitySteamSpurt.class, "Steam Spurt",
 		entity_id, Steampunkery.instance, 80, 1, true);
 	entity_id++;
-	if(ConfigSetup.debug_mode_B)
-	{
-	int id = 600; // has to be unique
-	EntityList.IDtoClassMapping.put(id, EntitySkySquid.class);
-	EntityList.entityEggs.put(id, new EntityEggInfo(id, 100, 200));
-	id++;
-	EntityList.IDtoClassMapping.put(id, EntityMechanicalHorse.class);
-	EntityList.entityEggs.put(id, new EntityEggInfo(id, 100, 200));
+	if (ConfigSetup.debug_mode_B) {
+	    int id = 600; // has to be unique
+	    EntityList.IDtoClassMapping.put(id, EntitySkySquid.class);
+	    EntityList.entityEggs.put(id, new EntityEggInfo(id, 100, 200));
+	    id++;
+	    EntityList.IDtoClassMapping.put(id, EntityMechanicalHorse.class);
+	    EntityList.entityEggs.put(id, new EntityEggInfo(id, 100, 200));
 	}
-    }
-
-    public static void addEntitySpawns() {
-
     }
 }

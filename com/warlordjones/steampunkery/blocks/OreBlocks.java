@@ -2,17 +2,16 @@ package com.warlordjones.steampunkery.blocks;
 
 import java.util.List;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class OreBlocks extends Block {
     public static String[] names = new String[] { "aluminum", "copper", "tin",
@@ -24,7 +23,7 @@ public class OreBlocks extends Block {
     public OreBlocks(final int id) {
 	super(id, Material.rock);
 	setUnlocalizedName("ore_blocks");
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.BlockTab);
     }
 
     @Override

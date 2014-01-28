@@ -11,10 +11,10 @@ import net.minecraft.client.model.ModelRenderer;
 //to use this code.
 
 public class ModelMusket extends ModelBase {
-    public ModelRenderer stock;
     public ModelRenderer barrel;
     public ModelRenderer pin;
     public ModelRenderer sight;
+    public ModelRenderer stock;
 
     public ModelMusket() {
 	stock = new ModelRenderer(this, 0, 0);
@@ -31,7 +31,8 @@ public class ModelMusket extends ModelBase {
 
     }
 
-    public void render(float f, float f1, float f2, float f3, float f4, float f5) {
+    public void render(final float f, final float f1, final float f2,
+	    final float f3, final float f4, final float f5) {
 	this.setRotationAngles(f, f1, f2, f3, f4, f5);
 	stock.render(f5);
 	barrel.render(f5);
@@ -39,8 +40,8 @@ public class ModelMusket extends ModelBase {
 	sight.render(f5);
     }
 
-    public void renderModel(float f, float f1, float f2, float f3, float f4,
-	    float f5) {
+    public void renderModel(final float f, final float f1, final float f2,
+	    final float f3, final float f4, final float f5) {
 	this.setRotationAngles(f, f1, f2, f3, f4, f5);
 	stock.render(f5);
 	barrel.render(f5);
@@ -49,8 +50,8 @@ public class ModelMusket extends ModelBase {
     }
 
     // Method you're going to want to override:
-    public void setRotationAngles(float f, float f1, float f2, float f3,
-	    float f4, float f5) {
+    public void setRotationAngles(final float f, final float f1,
+	    final float f2, final float f3, final float f4, final float f5) {
     }
 
 }

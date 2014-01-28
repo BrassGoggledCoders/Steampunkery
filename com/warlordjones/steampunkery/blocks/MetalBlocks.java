@@ -2,17 +2,16 @@ package com.warlordjones.steampunkery.blocks;
 
 import java.util.List;
 
+import com.warlordjones.steampunkery.Steampunkery;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-
-import com.warlordjones.steampunkery.Steampunkery;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class MetalBlocks extends Block {
     public static String[] names = new String[] { "aluminum", "copper", "tin",
@@ -24,7 +23,7 @@ public class MetalBlocks extends Block {
     public MetalBlocks(final int id) {
 	super(id, Material.anvil);
 	setUnlocalizedName("metal_blocks");
-	setCreativeTab(Steampunkery.steampunkeryTab);
+	setCreativeTab(Steampunkery.BlockTab);
     }
 
     @Override
@@ -46,6 +45,10 @@ public class MetalBlocks extends Block {
 	    par3List.add(new ItemStack(par1, 1, var4));
     }
 
+    public boolean isBeaconBase() {
+	return true;
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IconRegister par1IconRegister) {
@@ -53,9 +56,5 @@ public class MetalBlocks extends Block {
 	for (int i = 0; i < icons.length; i++)
 	    icons[i] = par1IconRegister.registerIcon("steampunkery:"
 		    + getUnlocalizedName().substring(5) + i);
-    }
-    public boolean isBeaconBase()
-    {
-	return true;
     }
 }

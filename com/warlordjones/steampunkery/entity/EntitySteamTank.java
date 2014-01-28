@@ -2,6 +2,8 @@ package com.warlordjones.steampunkery.entity;
 
 import java.util.List;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,18 +13,16 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntitySteamTank extends Entity {
+    private boolean field_70279_a;
+    private double speedMultiplier;
     private double tankPitch;
     private int tankPosRotationIncrements;
     private double tankX;
     private double tankY;
     private double tankYaw;
     private double tankZ;
-    private boolean field_70279_a;
-    private double speedMultiplier;
     @SideOnly(Side.CLIENT)
     private double velocityX;
     @SideOnly(Side.CLIENT)
@@ -295,10 +295,9 @@ public class EntitySteamTank extends Entity {
 	    }
 	    moveEntity(motionX, motionY, motionZ);
 	    if (isCollidedHorizontally && d3 > 0.2D) {
-		if (!worldObj.isRemote && !isDead) {
+		if (!worldObj.isRemote && !isDead)
 		    setDead();
-		    // dropItemWithOffset(SteamItems.steamtank.itemID, 1, 0.0F);
-		}
+		// dropItemWithOffset(SteamItems.steamtank.itemID, 1, 0.0F);
 	    } else {
 		motionX *= 0.9900000095367432D;
 		motionY *= 0.949999988079071D;
@@ -331,10 +330,8 @@ public class EntitySteamTank extends Entity {
 			    entity.applyEntityCollision(this);
 		    }
 		for (l = 0; l < 4; ++l) {
-		    final int i1 = MathHelper.floor_double(posX
-			    + (l % 2 - 0.5D) * 0.8D);
-		    final int j1 = MathHelper.floor_double(posZ
-			    + (l / 2 - 0.5D) * 0.8D);
+		    MathHelper.floor_double(posX + (l % 2 - 0.5D) * 0.8D);
+		    MathHelper.floor_double(posZ + (l / 2 - 0.5D) * 0.8D);
 		}
 	    }
 	    if (riddenByEntity != null && riddenByEntity.isDead)

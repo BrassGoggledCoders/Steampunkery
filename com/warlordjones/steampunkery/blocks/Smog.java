@@ -21,6 +21,7 @@ public class Smog extends BlockBase {
 	return null;
     }
 
+    @Override
     public int getRenderBlockPass() {
 	return 1;
     }

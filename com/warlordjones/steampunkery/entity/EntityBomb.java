@@ -1,186 +1,81 @@
 package com.warlordjones.steampunkery.entity;
 
+import com.warlordjones.steampunkery.blocks.Bomb;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.warlordjones.steampunkery.blocks.Bomb;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class EntityBomb extends Entity {
     public int blockID;
-    public int metadata;
+    public NBTTagCompound fallingBlockTileEntityData;
 
     /** How long the block has been falling for. */
     public int fallTime;
-    public boolean shouldDropItem;
+    public int metadata;
 
-    /** Maximum amount of damage dealt to entities hit by falling block */
-    private int fallHurtMax;
+    public boolean shouldDropItem;
 
     /** Actual damage dealt to entities hit by falling block */
     private float fallHurtAmount;
-    public NBTTagCompound fallingBlockTileEntityData;
+    /** Maximum amount of damage dealt to entities hit by falling block */
+    private int fallHurtMax;
 
-    public EntityBomb(World par1World) {
+    public EntityBomb(final World par1World) {
 	super(par1World);
-	this.shouldDropItem = true;
-	this.fallHurtMax = 40;
-	this.fallHurtAmount = 2.0F;
+	shouldDropItem = true;
+	fallHurtMax = 40;
+	fallHurtAmount = 2.0F;
     }
 
-    public EntityBomb(World par1World, double par2, double par4, double par6,
-	    int par8) {
+    public EntityBomb(final World par1World, final double par2,
+	    final double par4, final double par6, final int par8) {
 	this(par1World, par2, par4, par6, par8, 0);
     }
 
-    public EntityBomb(World par1World, double par2, double par4, double par6,
-	    int par8, int par9) {
+    public EntityBomb(final World par1World, final double par2,
+	    final double par4, final double par6, final int par8, final int par9) {
 	super(par1World);
-	this.shouldDropItem = true;
-	this.fallHurtMax = 40;
-	this.fallHurtAmount = 2.0F;
-	this.blockID = par8;
-	this.metadata = par9;
-	this.preventEntitySpawning = true;
-	this.setSize(0.98F, 0.98F);
-	this.yOffset = this.height / 2.0F;
-	this.setPosition(par2, par4, par6);
-	this.motionX = 0.0D;
-	this.motionY = 0.0D;
-	this.motionZ = 0.0D;
-	this.prevPosX = par2;
-	this.prevPosY = par4;
-	this.prevPosZ = par6;
-    }
-
-    /**
-     * returns if this entity triggers Block.onEntityWalking on the blocks they
-     * walk on. used for spiders and wolves to prevent them from trampling crops
-     */
-    protected boolean canTriggerWalking() {
-	return false;
-    }
-
-    protected void entityInit() {
+	shouldDropItem = true;
+	fallHurtMax = 40;
+	fallHurtAmount = 2.0F;
+	blockID = par8;
+	metadata = par9;
+	preventEntitySpawning = true;
+	setSize(0.98F, 0.98F);
+	yOffset = height / 2.0F;
+	setPosition(par2, par4, par6);
+	motionX = 0.0D;
+	motionY = 0.0D;
+	motionZ = 0.0D;
+	prevPosX = par2;
+	prevPosY = par4;
+	prevPosZ = par6;
     }
 
     /**
      * Returns true if other Entities should be prevented from moving through
      * this Entity.
      */
+    @Override
     public boolean canBeCollidedWith() {
-	return !this.isDead;
+	return !isDead;
     }
 
+    @Override
+    @SideOnly(Side.CLIENT)
     /**
-     * Called to update the entity's position/logic.
+     * Return whether this entity should be rendered as on fire.
      */
-    public void onUpdate() {
-	if (this.blockID == 0) {
-	    this.setDead();
-	} else {
-	    this.prevPosX = this.posX;
-	    this.prevPosY = this.posY;
-	    this.prevPosZ = this.posZ;
-	    ++this.fallTime;
-	    this.motionY -= 0.03999999910593033D;
-	    this.moveEntity(this.motionX, this.motionY, this.motionZ);
-	    this.motionX *= 0.9800000190734863D;
-	    this.motionY *= 0.9800000190734863D;
-	    this.motionZ *= 0.9800000190734863D;
-
-	    if (!this.worldObj.isRemote) {
-		int i = MathHelper.floor_double(this.posX);
-		int j = MathHelper.floor_double(this.posY);
-		int k = MathHelper.floor_double(this.posZ);
-
-		if (this.fallTime == 1) {
-		    if (this.worldObj.getBlockId(i, j, k) != this.blockID) {
-			this.setDead();
-			return;
-		    }
-
-		    this.worldObj.setBlockToAir(i, j, k);
-		}
-
-		if (this.onGround) {
-		    this.motionX *= 0.699999988079071D;
-		    this.motionZ *= 0.699999988079071D;
-		    this.motionY *= -0.5D;
-		    if (Block.blocksList[this.blockID] instanceof Bomb) {
-			((Bomb) Block.blocksList[this.blockID])
-				.onFinishFalling(this.worldObj, i, j, k,
-					this.metadata);
-			this.worldObj.createExplosion(this, this.posX,
-				this.posY, this.posZ, 10, true);
-			this.setDead();
-		    }
-		}
-	    }
-	}
+    public boolean canRenderOnFire() {
+	return false;
     }
 
-    /**
-     * Called when the mob is falling. Calculates and applies fall damage.
-     */
-    protected void fall(float par1) {
-    }
-
-    /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     */
-    protected void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
-	par1NBTTagCompound.setByte("Tile", (byte) this.blockID);
-	par1NBTTagCompound.setInteger("TileID", this.blockID);
-	par1NBTTagCompound.setByte("Data", (byte) this.metadata);
-	par1NBTTagCompound.setByte("Time", (byte) this.fallTime);
-	par1NBTTagCompound.setBoolean("DropItem", this.shouldDropItem);
-	par1NBTTagCompound.setFloat("FallHurtAmount", this.fallHurtAmount);
-	par1NBTTagCompound.setInteger("FallHurtMax", this.fallHurtMax);
-
-	if (this.fallingBlockTileEntityData != null) {
-	    par1NBTTagCompound.setCompoundTag("TileEntityData",
-		    this.fallingBlockTileEntityData);
-	}
-    }
-
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    protected void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
-	if (par1NBTTagCompound.hasKey("TileID")) {
-	    this.blockID = par1NBTTagCompound.getInteger("TileID");
-	} else {
-	    this.blockID = par1NBTTagCompound.getByte("Tile") & 255;
-	}
-
-	this.metadata = par1NBTTagCompound.getByte("Data") & 255;
-	this.fallTime = par1NBTTagCompound.getByte("Time") & 255;
-
-	if (par1NBTTagCompound.hasKey("HurtEntities")) {
-	    this.fallHurtAmount = par1NBTTagCompound.getFloat("FallHurtAmount");
-	    this.fallHurtMax = par1NBTTagCompound.getInteger("FallHurtMax");
-	}
-
-	if (par1NBTTagCompound.hasKey("DropItem")) {
-	    this.shouldDropItem = par1NBTTagCompound.getBoolean("DropItem");
-	}
-
-	if (par1NBTTagCompound.hasKey("TileEntityData")) {
-	    this.fallingBlockTileEntityData = par1NBTTagCompound
-		    .getCompoundTag("TileEntityData");
-	}
-
-	if (this.blockID == 0) {
-	    this.blockID = Block.sand.blockID;
-	}
-    }
-
+    @Override
     @SideOnly(Side.CLIENT)
     public float getShadowSize() {
 	return 0.0F;
@@ -188,14 +83,121 @@ public class EntityBomb extends Entity {
 
     @SideOnly(Side.CLIENT)
     public World getWorld() {
-	return this.worldObj;
+	return worldObj;
     }
 
-    @SideOnly(Side.CLIENT)
     /**
-     * Return whether this entity should be rendered as on fire.
+     * Called to update the entity's position/logic.
      */
-    public boolean canRenderOnFire() {
+    @Override
+    public void onUpdate() {
+	if (blockID == 0)
+	    setDead();
+	else {
+	    prevPosX = posX;
+	    prevPosY = posY;
+	    prevPosZ = posZ;
+	    ++fallTime;
+	    motionY -= 0.03999999910593033D;
+	    moveEntity(motionX, motionY, motionZ);
+	    motionX *= 0.9800000190734863D;
+	    motionY *= 0.9800000190734863D;
+	    motionZ *= 0.9800000190734863D;
+
+	    if (!worldObj.isRemote) {
+		final int i = MathHelper.floor_double(posX);
+		final int j = MathHelper.floor_double(posY);
+		final int k = MathHelper.floor_double(posZ);
+
+		if (fallTime == 1) {
+		    if (worldObj.getBlockId(i, j, k) != blockID) {
+			setDead();
+			return;
+		    }
+
+		    worldObj.setBlockToAir(i, j, k);
+		}
+
+		if (onGround) {
+		    motionX *= 0.699999988079071D;
+		    motionZ *= 0.699999988079071D;
+		    motionY *= -0.5D;
+		    if (Block.blocksList[blockID] instanceof Bomb) {
+			((Bomb) Block.blocksList[blockID]).onFinishFalling(
+				worldObj, i, j, k, metadata);
+			worldObj.createExplosion(this, posX, posY, posZ, 10,
+				true);
+			setDead();
+		    }
+		}
+	    }
+	}
+    }
+
+    /**
+     * returns if this entity triggers Block.onEntityWalking on the blocks they
+     * walk on. used for spiders and wolves to prevent them from trampling crops
+     */
+    @Override
+    protected boolean canTriggerWalking() {
 	return false;
+    }
+
+    @Override
+    protected void entityInit() {
+    }
+
+    /**
+     * Called when the mob is falling. Calculates and applies fall damage.
+     */
+    @Override
+    protected void fall(final float par1) {
+    }
+
+    /**
+     * (abstract) Protected helper method to read subclass entity data from NBT.
+     */
+    @Override
+    protected void readEntityFromNBT(final NBTTagCompound par1NBTTagCompound) {
+	if (par1NBTTagCompound.hasKey("TileID"))
+	    blockID = par1NBTTagCompound.getInteger("TileID");
+	else
+	    blockID = par1NBTTagCompound.getByte("Tile") & 255;
+
+	metadata = par1NBTTagCompound.getByte("Data") & 255;
+	fallTime = par1NBTTagCompound.getByte("Time") & 255;
+
+	if (par1NBTTagCompound.hasKey("HurtEntities")) {
+	    fallHurtAmount = par1NBTTagCompound.getFloat("FallHurtAmount");
+	    fallHurtMax = par1NBTTagCompound.getInteger("FallHurtMax");
+	}
+
+	if (par1NBTTagCompound.hasKey("DropItem"))
+	    shouldDropItem = par1NBTTagCompound.getBoolean("DropItem");
+
+	if (par1NBTTagCompound.hasKey("TileEntityData"))
+	    fallingBlockTileEntityData = par1NBTTagCompound
+		    .getCompoundTag("TileEntityData");
+
+	if (blockID == 0)
+	    blockID = Block.sand.blockID;
+    }
+
+    /**
+     * (abstract) Protected helper method to write subclass entity data to NBT.
+     */
+    @Override
+    protected void writeEntityToNBT(final NBTTagCompound par1NBTTagCompound) {
+	par1NBTTagCompound.setByte("Tile", (byte) blockID);
+	par1NBTTagCompound.setInteger("TileID", blockID);
+	par1NBTTagCompound.setByte("Data", (byte) metadata);
+	par1NBTTagCompound.setByte("Time", (byte) fallTime);
+	par1NBTTagCompound.setBoolean("DropItem", shouldDropItem);
+	par1NBTTagCompound.setFloat("FallHurtAmount", fallHurtAmount);
+	par1NBTTagCompound.setInteger("FallHurtMax", fallHurtMax);
+
+	if (fallingBlockTileEntityData != null)
+	    par1NBTTagCompound.setCompoundTag("TileEntityData",
+		    fallingBlockTileEntityData);
     }
 }

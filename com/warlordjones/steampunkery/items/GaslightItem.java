@@ -1,10 +1,10 @@
 package com.warlordjones.steampunkery.items;
 
+import com.warlordjones.steampunkery.blocks.SteamBlocks;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import com.warlordjones.steampunkery.blocks.SteamBlocks;
 
 public class GaslightItem extends ItemBase {
     public GaslightItem(final int id) {
