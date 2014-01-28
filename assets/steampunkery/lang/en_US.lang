@@ -97,6 +97,7 @@ item.vanilla_dusts.4.name=Diamond Dust
 item.vanilla_plates.0.name= Iron Plate
 item.vanilla_plates.1.name= Gold Plate
 item.goggles.name=Goggles
+item.spirit_focus.name=Wand Focus: Spirit of the Machine
 #Entities
 #Tab
 itemGroup.steampunkery_misc_tab=Steampunkery [Misc]

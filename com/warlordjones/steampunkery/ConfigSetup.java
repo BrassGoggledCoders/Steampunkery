@@ -97,6 +97,7 @@ public class ConfigSetup {
     public static int zinc_ore_chance;
     public static int zinc_ore_veinsize;
     public static int steam_bucketID;
+    public static int spirit_focusID;
 
     static void SetupConfiguration(final File configFile) {
 	// Configuration Code
@@ -325,6 +326,8 @@ public class ConfigSetup {
 		item_id).getInt();
 	item_id++;
 	steam_bucketID = config.get("Items", "Steam Bucket ID", item_id).getInt();
+	item_id++;
+	spirit_focusID = config.get("Items", "Spirit Focus ID (Thaumcraft Compat - ID will not be used if TC is not loaded", item_id).getInt();
 	// Armour
 
 	ConfigSetup.wandererHelmetID = config.get("Items", "Wanderer Cap ID",

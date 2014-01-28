@@ -17,6 +17,8 @@ Start.java
 
 assets/forge/
 
+assets/thaumcraft
+
 com/warlordjones/SHC/
 
 com/warlordjones/goo/
@@ -24,6 +26,8 @@ com/warlordjones/goo/
 com/warlordjones/hostilevariety/
 
 com/warlordjones/midas/
+
+thaumcraft/
 
 deobfuscation_data-1.6.4.lzma
 
