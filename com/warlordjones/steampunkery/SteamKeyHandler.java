@@ -1,3 +1,10 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.steampunkery;
 
 import java.util.EnumSet;
@@ -27,7 +34,7 @@ public class SteamKeyHandler extends KeyHandler {
 
     @Override
     public String getLabel() {
-	return label;
+	return SteamKeyHandler.label;
     }
 
     @Override

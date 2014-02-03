@@ -1,3 +1,10 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.steampunkery.items;
 
 import com.warlordjones.steampunkery.ConfigSetup;
@@ -11,7 +18,6 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fluids.FluidRegistry;
 
 public class SteamItems {
     public static Item brass_parts, steel_parts;
@@ -37,6 +43,8 @@ public class SteamItems {
     public static Item organs;
     public static Item pipe_wrench;
     public static Item respirator;
+    public static Item spirit_focus;
+    public static Item steam_bucket;
     // public static Item item_base;
     public static Item steamsword, steampick, steamaxe, steamshovel;
     // Material Section
@@ -48,8 +56,6 @@ public class SteamItems {
     public static Item toolbelt;
     public static Item vanilla_dusts;
     public static Item vanilla_plates;
-    public static Item steam_bucket;
-    public static Item spirit_focus;
 
     public static void RegisterItems() {
 	// Int Items
@@ -91,10 +97,9 @@ public class SteamItems {
 	SteamItems.vanilla_dusts = new VanillaDusts(ConfigSetup.vanilla_dustsID);
 	SteamItems.vanilla_plates = new VanillaPlates(
 		ConfigSetup.vanilla_platesID);
-	if(Loader.isModLoaded("thaumcraft"))
-	{
-	    spirit_focus = new SpiritFocus(ConfigSetup.spirit_focusID);
-	}
+	if (Loader.isModLoaded("thaumcraft"))
+	    SteamItems.spirit_focus = new SpiritFocus(
+		    ConfigSetup.spirit_focusID);
 
 	// steamtools
 	// TODO - Add config ids
@@ -127,8 +132,8 @@ public class SteamItems {
 	SteamItems.clockwork_minecart = new ClockworkMinecart(
 		ConfigSetup.clockwork_minecartID, 0)
 		.setUnlocalizedName("clockwork_minecart");
-	steam_bucket = new SteamBucket(ConfigSetup.steam_bucketID, 1);
-	
+	SteamItems.steam_bucket = new SteamBucket(ConfigSetup.steam_bucketID, 1);
+
 	RegistryUtils.addItem(SteamItems.metal_ingots, "Metal Ingot");
 	RegistryUtils.addItem(SteamItems.alloy_ingots, "Alloy Ingots");
 	RegistryUtils.addItem(SteamItems.metal_plates, "Metal Plates");

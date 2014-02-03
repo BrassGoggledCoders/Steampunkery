@@ -1,3 +1,10 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.steampunkery.blocks;
 
 import com.warlordjones.steampunkery.SteamConstants;
@@ -42,18 +49,18 @@ public class TeslaCoil extends BlockContainer {
     public void onBlockAdded(final World par1World, final int par2,
 	    final int par3, final int par4) {
 	if (par1World.isBlockIndirectlyGettingPowered(par2, par3, par4))
-	    isPowered = true;
+	    TeslaCoil.isPowered = true;
 	else
-	    isPowered = false;
+	    TeslaCoil.isPowered = false;
     }
 
     @Override
     public void onNeighborBlockChange(final World par1World, final int par2,
 	    final int par3, final int par4, final int par5) {
 	if (par1World.isBlockIndirectlyGettingPowered(par2, par3, par4))
-	    isPowered = true;
+	    TeslaCoil.isPowered = true;
 	else
-	    isPowered = false;
+	    TeslaCoil.isPowered = false;
     }
 
     @Override

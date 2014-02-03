@@ -1,3 +1,10 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.steampunkery.blocks;
 
 import com.warlordjones.steampunkery.ConfigSetup;
@@ -42,6 +49,7 @@ public class SteamBlocks {
     public static Block tank;
     public static Block tank_track, gun_barrel, engine_block;
     public static Block tesla_coil;
+    public static Block star;
 
     public static void RegisterBlocks() {
 	SteamBlocks.steam = new FluidSteam("Steam");
@@ -85,8 +93,8 @@ public class SteamBlocks {
 		.setHardness(1.0F).setResistance(9.0F);
 	SteamBlocks.slate_brick = new BlockBase(ConfigSetup.slate_brickID,
 		Material.rock).setUnlocalizedName("slate_brick")
-		.setCreativeTab(Steampunkery.BlockTab)
-		.setHardness(1.0F).setResistance(9.0F);
+		.setCreativeTab(Steampunkery.BlockTab).setHardness(1.0F)
+		.setResistance(9.0F);
 	SteamBlocks.slate_stair = new SlateStair(ConfigSetup.slate_stairID, 0)
 		.setHardness(1.0F).setResistance(9.0F);
 	SteamBlocks.slate_slab = new SlateSlab(ConfigSetup.slate_slabID, false,
@@ -120,6 +128,7 @@ public class SteamBlocks {
 		.setUnlocalizedName("hatch");
 	SteamBlocks.conveyor = new Conveyor(ConfigSetup.conveyorID,
 		Material.iron).setUnlocalizedName("conveyor_belt");
+	star = new Star(ConfigSetup.starID).setUnlocalizedName("star");
 	// cryo_player= new CryoPlayerBlock(ConfigSetup.cryo_playerID,
 	// Material.ice);
 	SteamBlocks.steam_block = new SteamBlock(ConfigSetup.steam_blockID)
@@ -136,6 +145,7 @@ public class SteamBlocks {
 		ItemBlockSlateSlab.class);
 	RegistryUtils.addMetaBlocks(SteamBlocks.deep_carpet,
 		ItemBlockDeepCarpet.class);
+	RegistryUtils.addMetaBlocks(star, ItemBlockStar.class);
 	RegistryUtils.addBlock(SteamBlocks.gaslight_frame, "Gaslight Frame");
 	RegistryUtils.addBlock(SteamBlocks.gaslamp, "Gaslamp");
 	RegistryUtils.addBlock(SteamBlocks.gaslight, "Gaslight");

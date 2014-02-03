@@ -10,8 +10,8 @@ package com.warlordjones.steampunkery.blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockSlateSlab extends ItemBlock {
-    public ItemBlockSlateSlab(final int id) {
+public class ItemBlockStar extends ItemBlock {
+    public ItemBlockStar(final int id) {
 	super(id);
 	setHasSubtypes(true);
     }
@@ -26,15 +26,11 @@ public class ItemBlockSlateSlab extends ItemBlock {
 	String name = "";
 	switch (itemstack.getItemDamage()) {
 	case 0: {
-	    name = "smooth";
+	    name = "pulse";
 	    break;
 	}
 	case 1: {
-	    name = "cobble";
-	    break;
-	}
-	case 2: {
-	    name = "brick";
+	    name = "inert";
 	    break;
 	}
 	default:

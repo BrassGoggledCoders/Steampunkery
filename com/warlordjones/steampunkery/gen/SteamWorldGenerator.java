@@ -1,3 +1,10 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.steampunkery.gen;
 
 import java.util.Random;
@@ -12,9 +19,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class SteamWorldGenerator implements IWorldGenerator {
-
-    static int ether_id = ConfigSetup.etherID;
-
+    
     @Override
     public void generate(final Random random, final int chunkX,
 	    final int chunkZ, final World world,
@@ -26,11 +31,43 @@ public class SteamWorldGenerator implements IWorldGenerator {
 	    generateSurface(world, random, chunkX * 16, chunkZ * 16);
 	else if (world.provider.dimensionId == 1)
 	    generateEnd(world, random, chunkX * 16, chunkZ * 16);
-	else if (world.provider.dimensionId == SteamWorldGenerator.ether_id)
+	else if (world.provider.dimensionId == ConfigSetup.etherID)
 	    generateEther(world, random, chunkX * 16, chunkZ * 16);
+	else if (world.provider.dimensionId == ConfigSetup.deepsID)
+	{
+	   generateDeeps(world, random, chunkX * 16, chunkZ * 16); 
+	}
+	else if(!world.provider.hasNoSky)
+	{
+	    generateStars(world, random, chunkX * 16, chunkZ * 16);
+	}
+	else
+	{
+	    generateElse(world, random, chunkX * 16, chunkZ * 16);
+	}
     }
 
-    public void generateSurface(final World world, final Random random,
+    private void generateStars(World world, Random random, int i, int j) {
+	// TODO Auto-generated method stub
+	
+    }
+
+    private void generateElse(World world, Random random, int x, int z) {
+	//Stub
+    }
+
+    private void generateDeeps(World world, Random random, int x, int z) {
+	/*for (int k = 0; k < 70; k++)
+	{
+		final int RandPosX = x + random.nextInt(16);
+		final int RandPosY = random.nextInt(4);
+		final int RandPosZ = z + random.nextInt(16);
+	    new WorldGenBedrockFissure().generate(world, random, RandPosX,
+		    RandPosY, RandPosZ);
+	}*/
+    }
+
+    private void generateSurface(final World world, final Random random,
 	    final int x, final int z) {
 	final int Xcoord = x + random.nextInt(16);
 	final int Ycoord = 10 + random.nextInt(60);
@@ -60,11 +97,25 @@ public class SteamWorldGenerator implements IWorldGenerator {
 	for (int k = 0; k < 50; k++)
 	    new WorldGenBedrockFissure().generate(world, random, RandPosX,
 		    RandPosY, RandPosZ);
+	for (int blockX = 0; blockX < 16; blockX++)
+	    for (int blockZ = 0; blockZ < 16; blockZ++)
+		for (int blockY = 4; blockY > 0; blockY--)
+		    if (world.getBlockId(blockX * 16 + blockX, blockY, blockZ
+			    * 16 + blockZ) == Block.bedrock.blockID)
+			world.setBlock(blockX * 16 + blockX, blockY, blockZ
+				* 16 + blockZ, Block.obsidian.blockID, 0, 2);
+	if (!ConfigSetup.structureddeepsentrance_B)
+	    for (int blockX = 0; blockX < 16; blockX++)
+		for (int blockZ = 0; blockZ < 16; blockZ++)
+		    for (int blockY = 1; blockY > 0; blockY--)
+			world.setBlock(blockX * 16 + blockX, blockY, blockZ
+				* 16 + blockZ, SteamBlocks.deeps.blockID, 0, 2);
 
     }
 
     private void generateEnd(final World world, final Random random,
 	    final int x, final int z) {
+	//Stub
     }
 
     private void generateEther(final World world, final Random random,
@@ -79,5 +130,6 @@ public class SteamWorldGenerator implements IWorldGenerator {
 
     private void generateNether(final World world, final Random random,
 	    final int x, final int z) {
+	//Stub
     }
 }

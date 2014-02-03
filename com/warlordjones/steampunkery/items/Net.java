@@ -1,3 +1,10 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.steampunkery.items;
 
 import java.util.List;
@@ -55,7 +62,7 @@ public class Net extends ItemBase {
 	    final EntityPlayer par2EntityPlayer,
 	    final EntityLivingBase par3EntityLivingBase) {
 	par3EntityLivingBase.setDead();
-	creature_name = par3EntityLivingBase;
+	Net.creature_name = par3EntityLivingBase;
 	par1ItemStack.setItemDamage(1);
 	return true;
     }

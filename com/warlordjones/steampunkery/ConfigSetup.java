@@ -1,3 +1,6 @@
+/*
+ * @author warlordjones
+ */
 package com.warlordjones.steampunkery;
 
 import java.io.File;
@@ -74,7 +77,9 @@ public class ConfigSetup {
     public static int sky_railID;
     public static int slateID, slate_cobbleID, slate_brickID, slate_slabID,
 	    slate_stairID;
+    public static int spirit_focusID;
     public static int steam_blockID;
+    public static int steam_bucketID;
     public static boolean structureddeepsentrance_B;
     public static int tankID;
     public static int telescopeID;
@@ -96,8 +101,8 @@ public class ConfigSetup {
     public static boolean zinc_ore_B;
     public static int zinc_ore_chance;
     public static int zinc_ore_veinsize;
-    public static int steam_bucketID;
-    public static int spirit_focusID;
+    public static int starID;
+    public static int star_itemblockID;
 
     static void SetupConfiguration(final File configFile) {
 	// Configuration Code
@@ -220,6 +225,8 @@ public class ConfigSetup {
 	block_id++;
 	ConfigSetup.steam_blockID = config.get("Blocks", "Steam Block ID",
 		block_id).getInt();
+	block_id++;
+	starID = config.get("Blocks", "Star Block ID", block_id).getInt();
 	int gen_blocksID = 200;
 	ConfigSetup.hot_mudID = config.get("Gen blocks", "Hot Mud ID",
 		gen_blocksID).getInt();
@@ -325,9 +332,15 @@ public class ConfigSetup {
 	ConfigSetup.vanilla_platesID = config.get("Items", "Vanilla Plates ID",
 		item_id).getInt();
 	item_id++;
-	steam_bucketID = config.get("Items", "Steam Bucket ID", item_id).getInt();
+	ConfigSetup.steam_bucketID = config.get("Items", "Steam Bucket ID",
+		item_id).getInt();
 	item_id++;
-	spirit_focusID = config.get("Items", "Spirit Focus ID (Thaumcraft Compat - ID will not be used if TC is not loaded", item_id).getInt();
+	ConfigSetup.spirit_focusID = config
+		.get("Items",
+			"Spirit Focus ID (Thaumcraft Compat - ID will not be used if TC is not loaded",
+			item_id).getInt();
+	item_id++;
+	star_itemblockID = config.get("Items", "Star ItemBlock ID", item_id).getInt();
 	// Armour
 
 	ConfigSetup.wandererHelmetID = config.get("Items", "Wanderer Cap ID",

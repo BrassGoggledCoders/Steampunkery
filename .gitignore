@@ -11,6 +11,7 @@ cpw/
 ibxm/
 paulscode/
 morph/
+lib/
 
 
 Start.java
@@ -19,13 +20,15 @@ assets/forge/
 
 assets/thaumcraft
 
-com/warlordjones/SHC/
+assets/oddsnends/
 
-com/warlordjones/goo/
+assets/betterworlds/
 
-com/warlordjones/hostilevariety/
+com/warlordjones/oddsnends/
 
-com/warlordjones/midas/
+com/warlordjones/betterworlds/
+
+com/warlordjones/swordsplus/
 
 thaumcraft/
 
@@ -42,3 +45,5 @@ forge_at.cfg
 forge_logo.png
 
 mcpmod.info
+
+*.html

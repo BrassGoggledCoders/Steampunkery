@@ -1,3 +1,10 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.steampunkery.gen;
 
 import com.warlordjones.steampunkery.ConfigSetup;
@@ -24,7 +31,6 @@ public class GenerationHandler {
 	// Biomes
 	GenerationHandler.ether_biome = new BiomeGenEther(
 		ConfigSetup.ether_biomeID);
-	// GameRegistry.addBiome(ether_biome);
 	GenerationHandler.deeps = new BiomeGenDeeps(ConfigSetup.deeps_biomeID);
 	if (ConfigSetup.scalded_lands_B) {
 	    GenerationHandler.scalded_biome = new BiomeGenScalded(
@@ -62,7 +68,6 @@ public class GenerationHandler {
     public static void registerGenerators() {
 	if (ConfigSetup.world_gen_B) {
 	    GameRegistry.registerWorldGenerator(new SteamWorldGenerator());
-	    GameRegistry.registerWorldGenerator(new WorldGenObsidianBottom());
 	}
 	if (Loader.isModLoaded("DragonAPI") && ConfigSetup.retrogen_B)
 	    GameRegistry.registerWorldGenerator(new RetroGenerationHandler());

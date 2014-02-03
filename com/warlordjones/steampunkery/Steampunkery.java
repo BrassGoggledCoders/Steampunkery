@@ -1,3 +1,9 @@
+/*
+ * @author warlordjones
+ *
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+ */
 package com.warlordjones.steampunkery;
 
 import java.util.logging.Level;
@@ -31,13 +37,6 @@ import net.minecraftforge.fluids.FluidRegistry;
 @Mod(modid = SteamConstants.modid, name = SteamConstants.name, version = SteamConstants.version, acceptedMinecraftVersions = "1.6.4, 1.6.2, 1.6.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Steampunkery {
-    // Instance
-    @Instance(SteamConstants.modid)
-    public static Steampunkery instance;
-
-    @SidedProxy(clientSide = "com.warlordjones.steampunkery.SteamClientProxy", serverSide = "com.warlordjones.steampunkery.SteamCommonProxy")
-    public static SteamCommonProxy proxy;
-
     public static CreativeTabs BlockTab = new CreativeTabs(
 	    "steampunkery_block_tab") {
 	@Override
@@ -45,6 +44,10 @@ public class Steampunkery {
 	    return new ItemStack(SteamBlocks.alloy_blocks, 1, 0);
 	}
     };
+
+    // Instance
+    @Instance(SteamConstants.modid)
+    public static Steampunkery instance;
 
     public static CreativeTabs ItemTab = new CreativeTabs(
 	    "steampunkery_item_tab") {
@@ -62,6 +65,9 @@ public class Steampunkery {
 	    return new ItemStack(SteamItems.goggles, 1, 0);
 	}
     };
+
+    @SidedProxy(clientSide = "com.warlordjones.steampunkery.SteamClientProxy", serverSide = "com.warlordjones.steampunkery.SteamCommonProxy")
+    public static SteamCommonProxy proxy;
 
     @EventHandler
     public void load(final FMLInitializationEvent event) {
@@ -124,7 +130,9 @@ public class Steampunkery {
 	    SteamLog.log(Level.INFO, "Dimensions Initialized");
 	Steampunkery.proxy.registerRenderThings();
 	if (ConfigSetup.debug_mode_B = true)
+	{
 	    SteamLog.log(Level.INFO, "RenderThingies registered");
+	}
 	NetworkRegistry.instance().registerConnectionHandler(
 		new SteamPlayerHandler());
 	if (ConfigSetup.debug_mode_B = true)
@@ -136,8 +144,12 @@ public class Steampunkery {
 	new DamageSourceZap("steampunkery.zap");
 	MinecraftForge.EVENT_BUS.register(new SteamEventHandler());
 	SteamKeyBindRegistry.init();
-	FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("steam", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(SteamItems.steam_bucket), new ItemStack(Item.bucketEmpty));
-	BucketHandler.INSTANCE.buckets.put(SteamBlocks.steam_block, SteamItems.steam_bucket);
+	FluidContainerRegistry.registerFluidContainer(FluidRegistry
+		.getFluidStack("steam", FluidContainerRegistry.BUCKET_VOLUME),
+		new ItemStack(SteamItems.steam_bucket), new ItemStack(
+			Item.bucketEmpty));
+	BucketHandler.INSTANCE.buckets.put(SteamBlocks.steam_block,
+		SteamItems.steam_bucket);
 	MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
     }
 

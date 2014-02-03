@@ -1,3 +1,10 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.warcore;
 
 import java.util.Random;
@@ -9,18 +16,19 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class SmartOreGeneration extends WorldGenerator {
     // Block to Generate in
     private final int block;
+    //Meta of Generated Block
     private final int metadata;
     /** The block ID of the ore to be placed using this generator. */
     private final int minableBlockId;
     /** The number of blocks to generate. */
     private final int numberOfBlocks;
 
-    public SmartOreGeneration(final int par1, final int par2, final int par3,
-	    final int par4, final int par5) {
-	minableBlockId = par1;
-	metadata = par2;
-	numberOfBlocks = par3;
-	block = par5;
+    public SmartOreGeneration(final int id, final int meta, final int number,
+	    final int rarity, final int base_block) {
+	minableBlockId = id;
+	metadata = meta;
+	numberOfBlocks = number;
+	block = base_block;
     }
 
     @Override

@@ -18,34 +18,37 @@ import net.minecraftforge.event.entity.player.FillBucketEvent;
 
 public class BucketHandler {
 
-        public static BucketHandler INSTANCE = new BucketHandler();
-        public Map<Block, Item> buckets = new HashMap<Block, Item>();
+    public static BucketHandler INSTANCE = new BucketHandler();
+    public Map<Block, Item> buckets = new HashMap<Block, Item>();
 
-        private BucketHandler() {
-        }
+    private BucketHandler() {
+    }
 
-        @ForgeSubscribe
-        public void onBucketFill(FillBucketEvent event) {
+    @ForgeSubscribe
+    public void onBucketFill(final FillBucketEvent event) {
 
-                ItemStack result = fillCustomBucket(event.world, event.target);
+	final ItemStack result = fillCustomBucket(event.world, event.target);
 
-                if (result == null)
-                        return;
+	if (result == null)
+	    return;
 
-                event.result = result;
-                event.setResult(Result.ALLOW);
-        }
+	event.result = result;
+	event.setResult(Result.ALLOW);
+    }
 
-        private ItemStack fillCustomBucket(World world, MovingObjectPosition pos) {
+    private ItemStack fillCustomBucket(final World world,
+	    final MovingObjectPosition pos) {
 
-                int blockID = world.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
+	final int blockID = world
+		.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
 
-                Item bucket = buckets.get(Block.blocksList[blockID]);
-                if (bucket != null && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) {
-                        world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
-                        return new ItemStack(bucket);
-                } else
-                        return null;
+	final Item bucket = buckets.get(Block.blocksList[blockID]);
+	if (bucket != null
+		&& world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) {
+	    world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
+	    return new ItemStack(bucket);
+	} else
+	    return null;
 
-        }
+    }
 }

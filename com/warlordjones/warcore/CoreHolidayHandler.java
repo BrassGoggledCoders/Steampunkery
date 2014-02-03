@@ -1,3 +1,10 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.warcore;
 
 import java.util.Calendar;
@@ -13,21 +20,19 @@ public class CoreHolidayHandler {
     public static void handleHolidays() {
 	final Calendar calendar = Calendar.getInstance();
 	calendar.setTime(new Date());
-	if (calendar.get(2) + 1 == 11 && calendar.get(5) == 9) {
+	if (calendar.get(2) + 1 == 11 && calendar.get(5) == 9)
 	    FMLLog.info("Happy birthday, ez!");
-	} else if (calendar.get(2) + 1 == 9 && calendar.get(5) == 19)
+	else if (calendar.get(2) + 1 == 9 && calendar.get(5) == 19)
 	    FMLLog.info("Happy Birthday warlordjones!");
-	else if (calendar.get(2) + 1 == 6 && calendar.get(5) == 1) {
+	else if (calendar.get(2) + 1 == 6 && calendar.get(5) == 1)
 	    FMLLog.info("Happy birthday, Notch!");
-	} else if (calendar.get(2) + 1 == 10) // && calendar.get(5) == 31)
-	{
+	else if (calendar.get(2) + 1 == 10)
 	    FMLLog.info("OOoooOOOoooo! Spooky!");
-	} else if (calendar.get(2) + 1 == 6 && calendar.get(5) == 4)
+	else if (calendar.get(2) + 1 == 6 && calendar.get(5) == 4)
 	    throw new NullPointerException("TROLL!");
-	else if (calendar.get(2) + 1 == 12) // && calendar.get(5) == 24)
-	{
+	else if (calendar.get(2) + 1 == 12)
 	    FMLLog.info("Merry X-mas!");
-	} else if (calendar.get(2) + 1 == 12 && calendar.get(5) == 25)
+	else if (calendar.get(2) + 1 == 12 && calendar.get(5) == 25)
 	    ;// FMLLog.info("Merry X-mas!");
 	     // final boolean isChristmasDay = true;
 	     // else if (calendar.get(2) + 1 == 1 && calendar.get(5) == 1) {

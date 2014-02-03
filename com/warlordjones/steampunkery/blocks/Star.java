@@ -13,27 +13,31 @@ import com.warlordjones.steampunkery.Steampunkery;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockCarpet;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
-public class DeepCarpet extends BlockCarpet {
-    public static String[] names = new String[] { "red", "green", "gold" };
+public class Star extends Block {
+    public static String[] names = new String[] { "pulse", "inert" };
     @SideOnly(Side.CLIENT)
     private Icon[] icons;
-    int number_blocks = 3;
+    int number_blocks = 2;
 
-    public DeepCarpet(final int id) {
-	super(id);
-	setUnlocalizedName("deep_carpet");
+    public Star(final int id) {
+	super(id, Material.dragonEgg);
+	setStepSound(Block.soundGlassFootstep);
+	setUnlocalizedName("star");
 	setCreativeTab(Steampunkery.BlockTab);
+	setHardness(-1);
+	setResistance(10);
     }
 
     @Override
     public int damageDropped(final int par1) {
-	return par1;
+	return 1;
     }
 
     @Override
@@ -48,6 +52,10 @@ public class DeepCarpet extends BlockCarpet {
 	    final CreativeTabs par2CreativeTabs, final List par3List) {
 	for (int var4 = 0; var4 < number_blocks; ++var4)
 	    par3List.add(new ItemStack(par1, 1, var4));
+    }
+
+    public boolean isBeaconBase() {
+	return true;
     }
 
     @Override

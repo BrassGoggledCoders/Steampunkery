@@ -1,6 +1,14 @@
+/*
+ * @author warlordjones
+ * 
+ * Using this source for addon development or examples/education is cool with me. 
+ * Taking this source code and claiming it is yours isn't cool!
+
+ */
 package com.warlordjones.steampunkery.blocks;
 
 import com.warlordjones.steampunkery.ConfigSetup;
+import com.warlordjones.steampunkery.Steampunkery;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -16,6 +24,7 @@ public class BlockDeeps extends Block {
 	setResistance(-1);
 	setTextureName("dragon_egg");
 	setUnlocalizedName("deeps");
+	setCreativeTab(Steampunkery.MiscTab);
     }
 
     @Override
