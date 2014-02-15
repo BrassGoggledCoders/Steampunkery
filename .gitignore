@@ -18,13 +18,28 @@ Start.java
 
 assets/forge/
 
-assets/thaumcraft
+assets/thaumcraft/
+
+assets/steamcraft
 
 assets/oddsnends/
 
 assets/betterworlds/
 
+/cofh/
+/micdoodle8/
+/powercrystals/
+/rebelkeithy/
+/universalelectricity/
+/mekanism/
+
+/dan200/
+
+/ic2/
+
 com/warlordjones/oddsnends/
+
+common/
 
 com/warlordjones/betterworlds/
 
@@ -47,3 +62,13 @@ forge_logo.png
 mcpmod.info
 
 *.html
+
+LICENSE 2
+
+README.md 2
+
+forge_at.cfg~
+
+mcmod.info
+
+pack.meta
